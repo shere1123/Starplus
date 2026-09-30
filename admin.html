@@ -1,1 +1,2654 @@
+<!DOCTYPE html>
+<html lang="ne">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 
+<title>StarPulse Admin Dashboard</title>
+
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+body{
+  font-family:Arial,"Noto Sans Devanagari",sans-serif;
+  background:#f4f6fa;
+  color:#172033;
+}
+
+/* LOGIN */
+#loginPage{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+  background:
+    radial-gradient(circle at top left,#273b72,transparent 35%),
+    linear-gradient(135deg,#07111f,#172c52);
+}
+
+.loginBox{
+  width:100%;
+  max-width:420px;
+  background:#fff;
+  padding:35px;
+  border-radius:18px;
+  box-shadow:0 25px 70px rgba(0,0,0,.35);
+}
+
+.logo{
+  text-align:center;
+  font-size:27px;
+  font-weight:800;
+  margin-bottom:8px;
+}
+
+.logo span{
+  color:#e91e63;
+}
+
+.loginSub{
+  text-align:center;
+  color:#777;
+  margin-bottom:25px;
+}
+
+.input{
+  width:100%;
+  border:1px solid #dce1ea;
+  padding:13px 14px;
+  border-radius:10px;
+  outline:none;
+  margin-bottom:14px;
+  font-size:15px;
+}
+
+.input:focus{
+  border-color:#e91e63;
+}
+
+.btn{
+  border:0;
+  cursor:pointer;
+  padding:12px 18px;
+  border-radius:9px;
+  font-weight:700;
+  transition:.2s;
+}
+
+.btn:hover{
+  transform:translateY(-1px);
+}
+
+.primary{
+  background:#e91e63;
+  color:#fff;
+}
+
+.dark{
+  background:#101929;
+  color:#fff;
+}
+
+.gray{
+  background:#edf0f5;
+  color:#333;
+}
+
+.danger{
+  background:#ffe5e8;
+  color:#d7193f;
+}
+
+.full{
+  width:100%;
+}
+
+.error{
+  color:#d7193f;
+  background:#fff0f2;
+  padding:10px;
+  border-radius:8px;
+  margin-bottom:14px;
+  display:none;
+}
+
+/* ADMIN */
+#adminPage{
+  display:none;
+}
+
+.topbar{
+  height:70px;
+  background:#101929;
+  color:white;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 25px;
+  position:sticky;
+  top:0;
+  z-index:100;
+  box-shadow:0 4px 20px rgba(0,0,0,.12);
+}
+
+.brand{
+  font-size:22px;
+  font-weight:800;
+}
+
+.brand span{
+  color:#ff3d78;
+}
+
+.adminInfo{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  font-size:13px;
+}
+
+.layout{
+  display:flex;
+  min-height:calc(100vh - 70px);
+}
+
+.sidebar{
+  width:240px;
+  background:#fff;
+  border-right:1px solid #e5e8ee;
+  padding:20px 14px;
+  position:fixed;
+  top:70px;
+  bottom:0;
+  overflow:auto;
+}
+
+.sideTitle{
+  font-size:11px;
+  color:#999;
+  text-transform:uppercase;
+  padding:10px 12px;
+  letter-spacing:1px;
+}
+
+.sideBtn{
+  width:100%;
+  border:0;
+  background:transparent;
+  padding:12px;
+  text-align:left;
+  border-radius:9px;
+  cursor:pointer;
+  font-size:14px;
+  margin-bottom:4px;
+}
+
+.sideBtn:hover,
+.sideBtn.active{
+  background:#fff0f5;
+  color:#e91e63;
+  font-weight:700;
+}
+
+.content{
+  margin-left:240px;
+  width:calc(100% - 240px);
+  padding:25px;
+}
+
+.pageTitle{
+  font-size:25px;
+  font-weight:800;
+  margin-bottom:5px;
+}
+
+.pageSub{
+  color:#7a8190;
+  margin-bottom:22px;
+  font-size:14px;
+}
+
+/* STAT CARDS */
+.stats{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:16px;
+  margin-bottom:22px;
+}
+
+.stat{
+  background:#fff;
+  border:1px solid #e8ebf0;
+  padding:20px;
+  border-radius:13px;
+  box-shadow:0 5px 18px rgba(20,30,50,.04);
+}
+
+.statTop{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:12px;
+}
+
+.statIcon{
+  width:42px;
+  height:42px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:10px;
+  background:#f1f3f7;
+  font-size:20px;
+}
+
+.statLabel{
+  color:#7a8190;
+  font-size:13px;
+}
+
+.statValue{
+  font-size:27px;
+  font-weight:800;
+}
+
+/* PANELS */
+.panel{
+  background:#fff;
+  border:1px solid #e6e9ef;
+  border-radius:13px;
+  margin-bottom:20px;
+  overflow:hidden;
+}
+
+.panelHead{
+  padding:17px 19px;
+  border-bottom:1px solid #edf0f4;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+}
+
+.panelTitle{
+  font-size:17px;
+  font-weight:800;
+}
+
+.panelBody{
+  padding:18px;
+}
+
+/* TOP POSTS */
+.topPost{
+  display:flex;
+  align-items:center;
+  gap:13px;
+  padding:13px 0;
+  border-bottom:1px solid #edf0f4;
+}
+
+.topPost:last-child{
+  border-bottom:0;
+}
+
+.rank{
+  width:30px;
+  height:30px;
+  border-radius:50%;
+  background:#101929;
+  color:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:700;
+  font-size:12px;
+}
+
+.topImg{
+  width:58px;
+  height:45px;
+  object-fit:cover;
+  border-radius:7px;
+  background:#eee;
+}
+
+.topInfo{
+  flex:1;
+  min-width:0;
+}
+
+.topTitle{
+  font-size:14px;
+  font-weight:700;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+
+.topMeta{
+  color:#8a909c;
+  font-size:12px;
+  margin-top:4px;
+}
+
+.views{
+  font-weight:800;
+  color:#e91e63;
+  white-space:nowrap;
+}
+
+/* CATEGORY */
+.categoryGrid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:12px;
+}
+
+.catBox{
+  background:#f7f8fa;
+  border:1px solid #e8ebef;
+  padding:15px;
+  border-radius:10px;
+}
+
+.catName{
+  font-weight:700;
+  font-size:14px;
+}
+
+.catCount{
+  color:#e91e63;
+  font-size:21px;
+  font-weight:800;
+  margin-top:6px;
+}
+
+/* TOOLBAR */
+.toolbar{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+}
+
+.search{
+  flex:1;
+  min-width:200px;
+  border:1px solid #dfe3e9;
+  padding:11px 13px;
+  border-radius:9px;
+  outline:none;
+}
+
+/* TABLE */
+.tableWrap{
+  overflow-x:auto;
+}
+
+table{
+  width:100%;
+  border-collapse:collapse;
+  min-width:900px;
+}
+
+th,
+td{
+  padding:13px 12px;
+  border-bottom:1px solid #edf0f4;
+  text-align:left;
+  font-size:13px;
+}
+
+th{
+  background:#f8f9fb;
+  color:#707784;
+  font-size:12px;
+}
+
+.postImg{
+  width:65px;
+  height:45px;
+  object-fit:cover;
+  border-radius:7px;
+}
+
+.postTitle{
+  max-width:280px;
+  font-weight:700;
+}
+
+.badge{
+  display:inline-block;
+  padding:5px 8px;
+  border-radius:20px;
+  font-size:10px;
+  font-weight:800;
+  margin:2px;
+}
+
+.badgePink{
+  background:#ffe5ef;
+  color:#d9185c;
+}
+
+.badgeBlue{
+  background:#e6f0ff;
+  color:#1769d1;
+}
+
+.badgeGreen{
+  background:#e5f8ee;
+  color:#16824a;
+}
+
+.action{
+  display:flex;
+  gap:6px;
+}
+
+/* MODAL */
+.modal{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.58);
+  z-index:500;
+  padding:20px;
+  overflow:auto;
+}
+
+.modalBox{
+  max-width:760px;
+  margin:30px auto;
+  background:#fff;
+  border-radius:15px;
+  overflow:hidden;
+}
+
+.modalHead{
+  padding:17px 20px;
+  border-bottom:1px solid #eee;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.modalBody{
+  padding:20px;
+}
+
+.close{
+  border:0;
+  background:#f1f3f5;
+  width:34px;
+  height:34px;
+  border-radius:50%;
+  cursor:pointer;
+  font-size:18px;
+}
+
+.formGrid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:14px;
+}
+
+.formGroup{
+  margin-bottom:14px;
+}
+
+.formGroup.fullWidth{
+  grid-column:1/-1;
+}
+
+.label{
+  display:block;
+  font-size:13px;
+  font-weight:700;
+  margin-bottom:7px;
+}
+
+.textarea{
+  width:100%;
+  min-height:150px;
+  resize:vertical;
+  border:1px solid #dce1e8;
+  padding:12px;
+  border-radius:9px;
+  outline:none;
+  font-family:inherit;
+}
+
+.select{
+  width:100%;
+  padding:12px;
+  border:1px solid #dce1e8;
+  border-radius:9px;
+  background:#fff;
+}
+
+.checks{
+  display:flex;
+  gap:20px;
+  padding:10px 0;
+}
+
+.check{
+  display:flex;
+  gap:7px;
+  align-items:center;
+  font-size:13px;
+}
+
+.preview{
+  display:none;
+  max-width:220px;
+  max-height:130px;
+  object-fit:cover;
+  border-radius:9px;
+  margin-top:8px;
+}
+
+.modalFoot{
+  padding:15px 20px;
+  border-top:1px solid #eee;
+  display:flex;
+  justify-content:flex-end;
+  gap:10px;
+}
+
+/* MOBILE */
+.mobileMenu{
+  display:none;
+  border:0;
+  background:#fff;
+  color:#101929;
+  font-size:22px;
+  cursor:pointer;
+}
+
+@media(max-width:900px){
+
+  .stats{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .categoryGrid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .sidebar{
+    transform:translateX(-100%);
+    transition:.25s;
+    z-index:200;
+    box-shadow:10px 0 30px rgba(0,0,0,.12);
+  }
+
+  .sidebar.open{
+    transform:translateX(0);
+  }
+
+  .content{
+    margin-left:0;
+    width:100%;
+  }
+
+  .mobileMenu{
+    display:block;
+  }
+
+  .brand{
+    font-size:18px;
+  }
+
+  .adminInfo span{
+    display:none;
+  }
+}
+
+@media(max-width:600px){
+
+  .topbar{
+    padding:0 14px;
+  }
+
+  .content{
+    padding:15px;
+  }
+
+  .stats{
+    grid-template-columns:1fr 1fr;
+    gap:10px;
+  }
+
+  .stat{
+    padding:14px;
+  }
+
+  .statValue{
+    font-size:21px;
+  }
+
+  .statIcon{
+    width:34px;
+    height:34px;
+    font-size:16px;
+  }
+
+  .formGrid{
+    grid-template-columns:1fr;
+  }
+
+  .formGroup.fullWidth{
+    grid-column:auto;
+  }
+
+  .loginBox{
+    padding:25px 20px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- LOGIN -->
+<section id="loginPage">
+
+  <div class="loginBox">
+
+    <div class="logo">
+      🌟 <span>StarPulse</span>
+    </div>
+
+    <div class="loginSub">
+      Admin Dashboard
+    </div>
+
+    <div id="loginError" class="error"></div>
+
+    <input
+      id="email"
+      class="input"
+      type="email"
+      placeholder="Admin Email"
+    >
+
+    <input
+      id="password"
+      class="input"
+      type="password"
+      placeholder="Password"
+    >
+
+    <button
+      id="loginBtn"
+      class="btn primary full"
+    >
+      🔐 Login
+    </button>
+
+  </div>
+
+</section>
+
+
+<!-- ADMIN -->
+<section id="adminPage">
+
+<header class="topbar">
+
+  <div style="display:flex;align-items:center;gap:12px">
+
+    <button
+      class="mobileMenu"
+      id="mobileMenu"
+    >
+      ☰
+    </button>
+
+    <div class="brand">
+      🌟 <span>StarPulse</span> Admin
+    </div>
+
+  </div>
+
+  <div class="adminInfo">
+
+    <span id="adminEmail"></span>
+
+    <button
+      class="btn danger"
+      id="logoutBtn"
+    >
+      Logout
+    </button>
+
+  </div>
+
+</header>
+
+
+<div class="layout">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar" id="sidebar">
+
+    <div class="sideTitle">
+      Dashboard
+    </div>
+
+    <button class="sideBtn active" data-page="dashboard">
+      📊 Dashboard
+    </button>
+
+    <button class="sideBtn" data-page="posts">
+      📰 All Posts
+    </button>
+
+    <button class="sideBtn" data-page="add">
+      ➕ Add Post
+    </button>
+
+    <div class="sideTitle">
+      Analytics
+    </div>
+
+    <button class="sideBtn" data-page="views">
+      👁️ Views Analytics
+    </button>
+
+  </aside>
+
+
+  <!-- CONTENT -->
+  <main class="content">
+
+    <!-- DASHBOARD -->
+    <section id="dashboardPage">
+
+      <h1 class="pageTitle">
+        Dashboard
+      </h1>
+
+      <p class="pageSub">
+        StarPulse website को real-time content र views overview
+      </p>
+
+
+      <div class="stats">
+
+        <div class="stat">
+          <div class="statTop">
+            <div class="statLabel">Total Posts</div>
+            <div class="statIcon">📰</div>
+          </div>
+          <div class="statValue" id="totalPosts">0</div>
+        </div>
+
+        <div class="stat">
+          <div class="statTop">
+            <div class="statLabel">Total Views</div>
+            <div class="statIcon">👁️</div>
+          </div>
+          <div class="statValue" id="totalViews">0</div>
+        </div>
+
+        <div class="stat">
+          <div class="statTop">
+            <div class="statLabel">Featured</div>
+            <div class="statIcon">⭐</div>
+          </div>
+          <div class="statValue" id="featuredCount">0</div>
+        </div>
+
+        <div class="stat">
+          <div class="statTop">
+            <div class="statLabel">Videos</div>
+            <div class="statIcon">🎬</div>
+          </div>
+          <div class="statValue" id="videoCount">0</div>
+        </div>
+
+      </div>
+
+
+      <div class="panel">
+
+        <div class="panelHead">
+          <div class="panelTitle">
+            🔥 Most Viewed Posts
+          </div>
+
+          <button
+            class="btn gray"
+            onclick="loadData()"
+          >
+            ↻ Refresh
+          </button>
+        </div>
+
+        <div class="panelBody" id="topPosts">
+          Loading...
+        </div>
+
+      </div>
+
+
+      <div class="panel">
+
+        <div class="panelHead">
+          <div class="panelTitle">
+            📂 Category Overview
+          </div>
+        </div>
+
+        <div class="panelBody">
+
+          <div
+            class="categoryGrid"
+            id="categoryStats"
+          >
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- POSTS -->
+    <section
+      id="postsPage"
+      style="display:none"
+    >
+
+      <h1 class="pageTitle">
+        All Posts
+      </h1>
+
+      <p class="pageSub">
+        सबै news posts manage गर्नुहोस्
+      </p>
+
+      <div class="panel">
+
+        <div class="panelHead">
+
+          <div class="toolbar">
+
+            <input
+              id="searchPosts"
+              class="search"
+              placeholder="Post खोज्नुहोस्..."
+            >
+
+            <button
+              class="btn primary"
+              onclick="openAddModal()"
+            >
+              + Add Post
+            </button>
+
+          </div>
+
+        </div>
+
+        <div class="tableWrap">
+
+          <table>
+
+            <thead>
+
+              <tr>
+                <th>Image</th>
+                <th>Title</th>
+                <th>Category</th>
+                <th>Views</th>
+                <th>Status</th>
+                <th>Date</th>
+                <th>Action</th>
+              </tr>
+
+            </thead>
+
+            <tbody id="postsTable">
+            </tbody>
+
+          </table>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ADD -->
+    <section
+      id="addPage"
+      style="display:none"
+    >
+
+      <h1 class="pageTitle">
+        Add New Post
+      </h1>
+
+      <p class="pageSub">
+        नयाँ celebrity news प्रकाशित गर्नुहोस्
+      </p>
+
+      <div class="panel">
+
+        <div class="panelBody">
+
+          <div class="formGrid">
+
+            <div class="formGroup fullWidth">
+
+              <label class="label">
+                Post Title *
+              </label>
+
+              <input
+                id="postTitle"
+                class="input"
+                placeholder="News title"
+              >
+
+            </div>
+
+
+            <div class="formGroup">
+
+              <label class="label">
+                Celebrity
+              </label>
+
+              <input
+                id="celebrity"
+                class="input"
+                placeholder="Celebrity name"
+              >
+
+            </div>
+
+
+            <div class="formGroup">
+
+              <label class="label">
+                Category
+              </label>
+
+              <select
+                id="category"
+                class="select"
+              >
+
+                <option value="Nepali">
+                  Nepali Celebrities
+                </option>
+
+                <option value="Bollywood">
+                  Bollywood
+                </option>
+
+                <option value="Hollywood">
+                  Hollywood
+                </option>
+
+                <option value="Music">
+                  Music
+                </option>
+
+                <option value="Movies">
+                  Movies & TV
+                </option>
+
+                <option value="Lifestyle">
+                  Lifestyle
+                </option>
+
+                <option value="Videos">
+                  Videos
+                </option>
+
+                <option value="Photos">
+                  Photos
+                </option>
+
+                <option value="Trending">
+                  Trending
+                </option>
+
+              </select>
+
+            </div>
+
+
+            <div class="formGroup fullWidth">
+
+              <label class="label">
+                Image URL *
+              </label>
+
+              <input
+                id="image"
+                class="input"
+                placeholder="https://..."
+              >
+
+              <img
+                id="imagePreview"
+                class="preview"
+              >
+
+            </div>
+
+
+            <div class="formGroup">
+
+              <label class="label">
+                YouTube Video ID
+              </label>
+
+              <input
+                id="youtubeId"
+                class="input"
+                placeholder="Example: dQw4w9WgXcQ"
+              >
+
+            </div>
+
+
+            <div class="formGroup">
+
+              <label class="label">
+                Publish Date
+              </label>
+
+              <input
+                id="date"
+                class="input"
+                type="date"
+              >
+
+            </div>
+
+
+            <div class="formGroup fullWidth">
+
+              <label class="label">
+                Short Excerpt
+              </label>
+
+              <textarea
+                id="excerpt"
+                class="textarea"
+                style="min-height:90px"
+                placeholder="Short description..."
+              ></textarea>
+
+            </div>
+
+
+            <div class="formGroup fullWidth">
+
+              <label class="label">
+                Full Content *
+              </label>
+
+              <textarea
+                id="content"
+                class="textarea"
+                placeholder="Full news content..."
+              ></textarea>
+
+            </div>
+
+
+            <div class="formGroup fullWidth">
+
+              <div class="checks">
+
+                <label class="check">
+                  <input
+                    id="featured"
+                    type="checkbox"
+                  >
+                  ⭐ Featured
+                </label>
+
+                <label class="check">
+                  <input
+                    id="trending"
+                    type="checkbox"
+                  >
+                  🔥 Trending
+                </label>
+
+              </div>
+
+            </div>
+
+          </div>
+
+          <button
+            class="btn primary"
+            id="saveBtn"
+          >
+            Publish Post
+          </button>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- VIEWS -->
+    <section
+      id="viewsPage"
+      style="display:none"
+    >
+
+      <h1 class="pageTitle">
+        Views Analytics
+      </h1>
+
+      <p class="pageSub">
+        कुन post कति पटक हेरिएको छ भन्ने विवरण
+      </p>
+
+
+      <div class="stats">
+
+        <div class="stat">
+          <div class="statTop">
+            <div class="statLabel">Total Views</div>
+            <div class="statIcon">👁️</div>
+          </div>
+
+          <div
+            class="statValue"
+            id="analyticsTotalViews"
+          >
+            0
+          </div>
+        </div>
+
+        <div class="stat">
+          <div class="statTop">
+            <div class="statLabel">Average Views</div>
+            <div class="statIcon">📈</div>
+          </div>
+
+          <div
+            class="statValue"
+            id="averageViews"
+          >
+            0
+          </div>
+        </div>
+
+      </div>
+
+
+      <div class="panel">
+
+        <div class="panelHead">
+
+          <div class="panelTitle">
+            👁️ Post Views
+          </div>
+
+          <input
+            id="viewSearch"
+            class="search"
+            placeholder="Post खोज्नुहोस्..."
+          >
+
+        </div>
+
+        <div class="tableWrap">
+
+          <table>
+
+            <thead>
+
+              <tr>
+                <th>Rank</th>
+                <th>Post</th>
+                <th>Category</th>
+                <th>Total Views</th>
+                <th>Featured</th>
+                <th>Trending</th>
+              </tr>
+
+            </thead>
+
+            <tbody id="viewsTable">
+            </tbody>
+
+          </table>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+</div>
+
+</section>
+
+
+<!-- EDIT MODAL -->
+<div
+  class="modal"
+  id="editModal"
+>
+
+  <div class="modalBox">
+
+    <div class="modalHead">
+
+      <strong>
+        Edit Post
+      </strong>
+
+      <button
+        class="close"
+        onclick="closeModal()"
+      >
+        ×
+      </button>
+
+    </div>
+
+
+    <div class="modalBody">
+
+      <input
+        id="editId"
+        type="hidden"
+      >
+
+      <div class="formGrid">
+
+        <div class="formGroup fullWidth">
+
+          <label class="label">
+            Title
+          </label>
+
+          <input
+            id="editTitle"
+            class="input"
+          >
+
+        </div>
+
+
+        <div class="formGroup">
+
+          <label class="label">
+            Celebrity
+          </label>
+
+          <input
+            id="editCelebrity"
+            class="input"
+          >
+
+        </div>
+
+
+        <div class="formGroup">
+
+          <label class="label">
+            Category
+          </label>
+
+          <select
+            id="editCategory"
+            class="select"
+          >
+
+            <option>Nepali</option>
+            <option>Bollywood</option>
+            <option>Hollywood</option>
+            <option>Music</option>
+            <option>Movies</option>
+            <option>Lifestyle</option>
+            <option>Videos</option>
+            <option>Photos</option>
+            <option>Trending</option>
+
+          </select>
+
+        </div>
+
+
+        <div class="formGroup fullWidth">
+
+          <label class="label">
+            Image URL
+          </label>
+
+          <input
+            id="editImage"
+            class="input"
+          >
+
+        </div>
+
+
+        <div class="formGroup">
+
+          <label class="label">
+            YouTube ID
+          </label>
+
+          <input
+            id="editYoutube"
+            class="input"
+          >
+
+        </div>
+
+
+        <div class="formGroup">
+
+          <label class="label">
+            Date
+          </label>
+
+          <input
+            id="editDate"
+            class="input"
+            type="date"
+          >
+
+        </div>
+
+
+        <div class="formGroup fullWidth">
+
+          <label class="label">
+            Excerpt
+          </label>
+
+          <textarea
+            id="editExcerpt"
+            class="textarea"
+            style="min-height:90px"
+          ></textarea>
+
+        </div>
+
+
+        <div class="formGroup fullWidth">
+
+          <label class="label">
+            Content
+          </label>
+
+          <textarea
+            id="editContent"
+            class="textarea"
+          ></textarea>
+
+        </div>
+
+
+        <div class="formGroup fullWidth">
+
+          <div class="checks">
+
+            <label class="check">
+              <input
+                id="editFeatured"
+                type="checkbox"
+              >
+              ⭐ Featured
+            </label>
+
+            <label class="check">
+              <input
+                id="editTrending"
+                type="checkbox"
+              >
+              🔥 Trending
+            </label>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="modalFoot">
+
+      <button
+        class="btn gray"
+        onclick="closeModal()"
+      >
+        Cancel
+      </button>
+
+      <button
+        class="btn primary"
+        id="updateBtn"
+      >
+        Update Post
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<script type="module">
+
+import {
+  initializeApp
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+import {
+  getAuth,
+  signInWithEmailAndPassword,
+  onAuthStateChanged,
+  signOut
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+import {
+  getFirestore,
+  collection,
+  getDocs,
+  addDoc,
+  updateDoc,
+  deleteDoc,
+  doc,
+  serverTimestamp
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+
+/* =========================
+   FIREBASE CONFIG
+========================= */
+
+const firebaseConfig = {
+  apiKey: "AIzaSyAugOzRINjz2TTZVazdZN-novPV7R94yAo",
+  authDomain: "mero-news-porttal.firebaseapp.com",
+  projectId: "mero-news-porttal",
+  storageBucket: "mero-news-porttal.firebasestorage.app",
+  messagingSenderId: "779470078737",
+  appId: "1:779470078737:web:f2cbae6da4f855464042b0"
+};
+
+
+const app = initializeApp(firebaseConfig);
+
+const auth = getAuth(app);
+
+const db = getFirestore(app);
+
+
+/* =========================
+   STATE
+========================= */
+
+let allPosts = [];
+
+
+/* =========================
+   ELEMENTS
+========================= */
+
+const loginPage =
+  document.getElementById("loginPage");
+
+const adminPage =
+  document.getElementById("adminPage");
+
+const loginError =
+  document.getElementById("loginError");
+
+
+/* =========================
+   AUTH
+========================= */
+
+document
+.getElementById("loginBtn")
+.addEventListener("click", async()=>{
+
+  const email =
+    document.getElementById("email").value.trim();
+
+  const password =
+    document.getElementById("password").value;
+
+  loginError.style.display="none";
+
+  if(!email || !password){
+
+    loginError.textContent =
+      "Email र password राख्नुहोस्।";
+
+    loginError.style.display="block";
+
+    return;
+  }
+
+  try{
+
+    await signInWithEmailAndPassword(
+      auth,
+      email,
+      password
+    );
+
+  }catch(error){
+
+    loginError.textContent =
+      "Login failed: " + error.message;
+
+    loginError.style.display="block";
+  }
+
+});
+
+
+document
+.getElementById("logoutBtn")
+.addEventListener("click",()=>{
+
+  signOut(auth);
+
+});
+
+
+onAuthStateChanged(auth,(user)=>{
+
+  if(user){
+
+    loginPage.style.display="none";
+
+    adminPage.style.display="block";
+
+    document
+      .getElementById("adminEmail")
+      .textContent = user.email || "";
+
+    loadData();
+
+  }else{
+
+    loginPage.style.display="flex";
+
+    adminPage.style.display="none";
+
+  }
+
+});
+
+
+/* =========================
+   LOAD FIRESTORE
+========================= */
+
+window.loadData = async function(){
+
+  try{
+
+    const snap =
+      await getDocs(
+        collection(db,"news")
+      );
+
+    allPosts=[];
+
+    snap.forEach(item=>{
+
+      allPosts.push({
+        id:item.id,
+        ...item.data()
+      });
+
+    });
+
+
+    /*
+      पुरानो documents मा createdAt नभए पनि
+      admin चलोस् भनेर client-side sorting
+    */
+
+    allPosts.sort((a,b)=>{
+
+      const av =
+        a.createdAt?.seconds || 0;
+
+      const bv =
+        b.createdAt?.seconds || 0;
+
+      return bv-av;
+
+    });
+
+
+    renderStats();
+
+    renderTopPosts();
+
+    renderCategories();
+
+    renderPosts();
+
+    renderViews();
+
+  }catch(error){
+
+    console.error(error);
+
+    alert(
+      "Firebase data load भएन: " +
+      error.message
+    );
+
+  }
+
+};
+
+
+/* =========================
+   STATS
+========================= */
+
+function renderStats(){
+
+  const total =
+    allPosts.length;
+
+  const totalViews =
+    allPosts.reduce(
+      (sum,p)=>
+        sum + Number(p.views || 0),
+      0
+    );
+
+  const featured =
+    allPosts.filter(
+      p=>p.featured===true
+    ).length;
+
+  const videos =
+    allPosts.filter(
+      p=>p.youtubeId
+    ).length;
+
+
+  document.getElementById(
+    "totalPosts"
+  ).textContent =
+    total.toLocaleString();
+
+
+  document.getElementById(
+    "totalViews"
+  ).textContent =
+    totalViews.toLocaleString();
+
+
+  document.getElementById(
+    "featuredCount"
+  ).textContent =
+    featured.toLocaleString();
+
+
+  document.getElementById(
+    "videoCount"
+  ).textContent =
+    videos.toLocaleString();
+
+
+  document.getElementById(
+    "analyticsTotalViews"
+  ).textContent =
+    totalViews.toLocaleString();
+
+
+  document.getElementById(
+    "averageViews"
+  ).textContent =
+    total
+      ? Math.round(totalViews/total).toLocaleString()
+      : "0";
+
+}
+
+
+/* =========================
+   TOP POSTS
+========================= */
+
+function renderTopPosts(){
+
+  const box =
+    document.getElementById("topPosts");
+
+  const posts =
+    [...allPosts]
+      .sort(
+        (a,b)=>
+          Number(b.views||0) -
+          Number(a.views||0)
+      )
+      .slice(0,10);
+
+
+  if(!posts.length){
+
+    box.innerHTML =
+      "<p>अहिले कुनै post छैन।</p>";
+
+    return;
+  }
+
+
+  box.innerHTML =
+    posts.map((p,index)=>{
+
+      const image =
+        p.image ||
+        "https://via.placeholder.com/100x70?text=News";
+
+      return `
+
+        <div class="topPost">
+
+          <div class="rank">
+            ${index+1}
+          </div>
+
+          <img
+            class="topImg"
+            src="${safe(image)}"
+          >
+
+          <div class="topInfo">
+
+            <div class="topTitle">
+              ${safe(p.title || "Untitled")}
+            </div>
+
+            <div class="topMeta">
+              ${safe(p.category || "News")}
+              ${p.celebrity ? " • "+safe(p.celebrity) : ""}
+            </div>
+
+          </div>
+
+          <div class="views">
+            👁 ${Number(p.views||0).toLocaleString()}
+          </div>
+
+        </div>
+
+      `;
+
+    }).join("");
+
+}
+
+
+/* =========================
+   CATEGORY STATS
+========================= */
+
+function renderCategories(){
+
+  const map={};
+
+  allPosts.forEach(p=>{
+
+    const cat =
+      p.category || "Other";
+
+    if(!map[cat]){
+      map[cat]={
+        posts:0,
+        views:0
+      };
+    }
+
+    map[cat].posts++;
+
+    map[cat].views +=
+      Number(p.views||0);
+
+  });
+
+
+  const box =
+    document.getElementById(
+      "categoryStats"
+    );
+
+
+  box.innerHTML =
+    Object.entries(map)
+      .sort(
+        (a,b)=>
+          b[1].views-a[1].views
+      )
+      .map(([name,data])=>`
+
+        <div class="catBox">
+
+          <div class="catName">
+            ${safe(name)}
+          </div>
+
+          <div class="catCount">
+            ${data.posts}
+          </div>
+
+          <div style="font-size:12px;color:#777">
+            👁 ${data.views.toLocaleString()} views
+          </div>
+
+        </div>
+
+      `)
+      .join("");
+
+}
+
+
+/* =========================
+   POSTS TABLE
+========================= */
+
+function renderPosts(){
+
+  const search =
+    document
+      .getElementById("searchPosts")
+      .value
+      .toLowerCase();
+
+
+  const rows =
+    allPosts.filter(p=>{
+
+      const text =
+        `${p.title||""}
+         ${p.celebrity||""}
+         ${p.category||""}`
+        .toLowerCase();
+
+      return text.includes(search);
+
+    });
+
+
+  document.getElementById(
+    "postsTable"
+  ).innerHTML =
+
+    rows.map(p=>{
+
+      const image =
+        p.image ||
+        "https://via.placeholder.com/100x70?text=News";
+
+      return `
+
+        <tr>
+
+          <td>
+            <img
+              class="postImg"
+              src="${safe(image)}"
+            >
+          </td>
+
+          <td>
+            <div class="postTitle">
+              ${safe(p.title || "Untitled")}
+            </div>
+
+            <small>
+              ${safe(p.celebrity || "")}
+            </small>
+          </td>
+
+          <td>
+            ${safe(p.category || "News")}
+          </td>
+
+          <td>
+            <strong>
+              👁 ${Number(p.views||0).toLocaleString()}
+            </strong>
+          </td>
+
+          <td>
+
+            ${
+              p.featured
+              ? `<span class="badge badgePink">FEATURED</span>`
+              : ""
+            }
+
+            ${
+              p.trending
+              ? `<span class="badge badgeGreen">TRENDING</span>`
+              : ""
+            }
+
+          </td>
+
+          <td>
+            ${safe(p.date || "-")}
+          </td>
+
+          <td>
+
+            <div class="action">
+
+              <button
+                class="btn gray"
+                onclick="editPost('${p.id}')"
+              >
+                ✏️
+              </button>
+
+              <button
+                class="btn danger"
+                onclick="deletePost('${p.id}')"
+              >
+                🗑
+              </button>
+
+            </div>
+
+          </td>
+
+        </tr>
+
+      `;
+
+    }).join("");
+
+}
+
+
+/* =========================
+   VIEWS TABLE
+========================= */
+
+function renderViews(){
+
+  const search =
+    document
+      .getElementById("viewSearch")
+      .value
+      .toLowerCase();
+
+
+  const posts =
+    [...allPosts]
+      .filter(p=>{
+
+        const text =
+          `${p.title||""}
+           ${p.category||""}
+           ${p.celebrity||""}`
+          .toLowerCase();
+
+        return text.includes(search);
+
+      })
+      .sort(
+        (a,b)=>
+          Number(b.views||0) -
+          Number(a.views||0)
+      );
+
+
+  document.getElementById(
+    "viewsTable"
+  ).innerHTML =
+
+    posts.map((p,index)=>`
+
+      <tr>
+
+        <td>
+          <strong>
+            #${index+1}
+          </strong>
+        </td>
+
+        <td>
+
+          <div style="display:flex;gap:10px;align-items:center">
+
+            <img
+              class="postImg"
+              src="${safe(
+                p.image ||
+                "https://via.placeholder.com/100x70"
+              )}"
+            >
+
+            <div class="postTitle">
+              ${safe(p.title||"Untitled")}
+            </div>
+
+          </div>
+
+        </td>
+
+        <td>
+          ${safe(p.category||"News")}
+        </td>
+
+        <td>
+
+          <strong
+            style="font-size:16px;color:#e91e63"
+          >
+            👁 ${Number(p.views||0).toLocaleString()}
+          </strong>
+
+        </td>
+
+        <td>
+          ${p.featured ? "⭐ Yes" : "—"}
+        </td>
+
+        <td>
+          ${p.trending ? "🔥 Yes" : "—"}
+        </td>
+
+      </tr>
+
+    `).join("");
+
+}
+
+
+/* =========================
+   ADD POST
+========================= */
+
+document
+.getElementById("saveBtn")
+.addEventListener("click",async()=>{
+
+  const title =
+    document.getElementById("postTitle")
+    .value.trim();
+
+  const image =
+    document.getElementById("image")
+    .value.trim();
+
+  const content =
+    document.getElementById("content")
+    .value.trim();
+
+
+  if(!title || !image || !content){
+
+    alert(
+      "Title, Image र Content अनिवार्य छ।"
+    );
+
+    return;
+  }
+
+
+  const btn =
+    document.getElementById("saveBtn");
+
+  btn.disabled=true;
+
+  btn.textContent="Saving...";
+
+
+  try{
+
+    await addDoc(
+      collection(db,"news"),
+      {
+
+        title,
+
+        celebrity:
+          document
+          .getElementById("celebrity")
+          .value.trim(),
+
+        category:
+          document
+          .getElementById("category")
+          .value,
+
+        image,
+
+        youtubeId:
+          document
+          .getElementById("youtubeId")
+          .value.trim(),
+
+        date:
+          document
+          .getElementById("date")
+          .value ||
+          new Date()
+            .toISOString()
+            .slice(0,10),
+
+        excerpt:
+          document
+          .getElementById("excerpt")
+          .value.trim(),
+
+        content,
+
+        featured:
+          document
+          .getElementById("featured")
+          .checked,
+
+        trending:
+          document
+          .getElementById("trending")
+          .checked,
+
+        /*
+          नयाँ post को view 0 बाट सुरु
+        */
+        views:0,
+
+        createdAt:
+          serverTimestamp()
+
+      }
+    );
+
+
+    alert(
+      "✅ Post successfully published!"
+    );
+
+
+    clearForm();
+
+    await loadData();
+
+    showPage("posts");
+
+  }catch(error){
+
+    alert(
+      "Post save भएन: " +
+      error.message
+    );
+
+  }
+
+
+  btn.disabled=false;
+  btn.textContent="Publish Post";
+
+});
+
+
+/* =========================
+   EDIT
+========================= */
+
+window.editPost = function(id){
+
+  const p =
+    allPosts.find(
+      x=>x.id===id
+    );
+
+  if(!p)return;
+
+
+  document.getElementById("editId").value=id;
+
+  document.getElementById("editTitle").value=
+    p.title||"";
+
+  document.getElementById("editCelebrity").value=
+    p.celebrity||"";
+
+  document.getElementById("editCategory").value=
+    p.category||"Nepali";
+
+  document.getElementById("editImage").value=
+    p.image||"";
+
+  document.getElementById("editYoutube").value=
+    p.youtubeId||"";
+
+  document.getElementById("editDate").value=
+    p.date||"";
+
+  document.getElementById("editExcerpt").value=
+    p.excerpt||"";
+
+  document.getElementById("editContent").value=
+    p.content||"";
+
+  document.getElementById("editFeatured").checked=
+    p.featured===true;
+
+  document.getElementById("editTrending").checked=
+    p.trending===true;
+
+
+  document.getElementById(
+    "editModal"
+  ).style.display="block";
+
+};
+
+
+window.closeModal=function(){
+
+  document.getElementById(
+    "editModal"
+  ).style.display="none";
+
+};
+
+
+/* =========================
+   UPDATE
+========================= */
+
+document
+.getElementById("updateBtn")
+.addEventListener("click",async()=>{
+
+  const id =
+    document
+    .getElementById("editId")
+    .value;
+
+
+  if(!id)return;
+
+
+  try{
+
+    await updateDoc(
+      doc(db,"news",id),
+      {
+
+        title:
+          document
+          .getElementById("editTitle")
+          .value.trim(),
+
+        celebrity:
+          document
+          .getElementById("editCelebrity")
+          .value.trim(),
+
+        category:
+          document
+          .getElementById("editCategory")
+          .value,
+
+        image:
+          document
+          .getElementById("editImage")
+          .value.trim(),
+
+        youtubeId:
+          document
+          .getElementById("editYoutube")
+          .value.trim(),
+
+        date:
+          document
+          .getElementById("editDate")
+          .value,
+
+        excerpt:
+          document
+          .getElementById("editExcerpt")
+          .value.trim(),
+
+        content:
+          document
+          .getElementById("editContent")
+          .value.trim(),
+
+        featured:
+          document
+          .getElementById("editFeatured")
+          .checked,
+
+        trending:
+          document
+          .getElementById("editTrending")
+          .checked
+
+        /*
+          views update गर्दैन।
+          त्यसैले post edit गर्दा
+          पुरानो views सुरक्षित रहन्छ।
+        */
+
+      }
+    );
+
+
+    alert(
+      "✅ Post updated!"
+    );
+
+    closeModal();
+
+    await loadData();
+
+  }catch(error){
+
+    alert(
+      "Update failed: "+
+      error.message
+    );
+
+  }
+
+});
+
+
+/* =========================
+   DELETE
+========================= */
+
+window.deletePost=async function(id){
+
+  const p =
+    allPosts.find(
+      x=>x.id===id
+    );
+
+  if(!p)return;
+
+
+  const yes =
+    confirm(
+      `Delete this post?\n\n${p.title}`
+    );
+
+
+  if(!yes)return;
+
+
+  try{
+
+    await deleteDoc(
+      doc(db,"news",id)
+    );
+
+    alert(
+      "Post deleted."
+    );
+
+    await loadData();
+
+  }catch(error){
+
+    alert(
+      "Delete failed: "+
+      error.message
+    );
+
+  }
+
+};
+
+
+/* =========================
+   SEARCH
+========================= */
+
+document
+.getElementById("searchPosts")
+.addEventListener(
+  "input",
+  renderPosts
+);
+
+
+document
+.getElementById("viewSearch")
+.addEventListener(
+  "input",
+  renderViews
+);
+
+
+/* =========================
+   IMAGE PREVIEW
+========================= */
+
+document
+.getElementById("image")
+.addEventListener("input",(e)=>{
+
+  const url =
+    e.target.value.trim();
+
+  const img =
+    document.getElementById(
+      "imagePreview"
+    );
+
+  if(url){
+
+    img.src=url;
+
+    img.style.display="block";
+
+  }else{
+
+    img.style.display="none";
+
+  }
+
+});
+
+
+/* =========================
+   NAVIGATION
+========================= */
+
+document
+.querySelectorAll(".sideBtn")
+.forEach(btn=>{
+
+  btn.addEventListener("click",()=>{
+
+    showPage(
+      btn.dataset.page
+    );
+
+    document
+      .querySelectorAll(".sideBtn")
+      .forEach(x=>
+        x.classList.remove("active")
+      );
+
+    btn.classList.add("active");
+
+  });
+
+});
+
+
+window.showPage=function(page){
+
+  document
+    .getElementById("dashboardPage")
+    .style.display =
+      page==="dashboard"
+      ? "block"
+      : "none";
+
+
+  document
+    .getElementById("postsPage")
+    .style.display =
+      page==="posts"
+      ? "block"
+      : "none";
+
+
+  document
+    .getElementById("addPage")
+    .style.display =
+      page==="add"
+      ? "block"
+      : "none";
+
+
+  document
+    .getElementById("viewsPage")
+    .style.display =
+      page==="views"
+      ? "block"
+      : "none";
+
+
+  document
+    .getElementById("sidebar")
+    .classList.remove("open");
+
+
+  if(page==="add"){
+
+    clearForm();
+
+  }
+
+};
+
+
+/* =========================
+   ADD MODAL / PAGE
+========================= */
+
+window.openAddModal=function(){
+
+  showPage("add");
+
+  document
+    .querySelectorAll(".sideBtn")
+    .forEach(x=>
+      x.classList.remove("active")
+    );
+
+};
+
+
+/* =========================
+   CLEAR
+========================= */
+
+function clearForm(){
+
+  [
+    "postTitle",
+    "celebrity",
+    "image",
+    "youtubeId",
+    "date",
+    "excerpt",
+    "content"
+  ].forEach(id=>{
+
+    document.getElementById(id).value="";
+
+  });
+
+
+  document.getElementById(
+    "featured"
+  ).checked=false;
+
+
+  document.getElementById(
+    "trending"
+  ).checked=false;
+
+
+  document.getElementById(
+    "imagePreview"
+  ).style.display="none";
+
+}
+
+
+/* =========================
+   MOBILE MENU
+========================= */
+
+document
+.getElementById("mobileMenu")
+.addEventListener("click",()=>{
+
+  document
+    .getElementById("sidebar")
+    .classList.toggle("open");
+
+});
+
+
+/* =========================
+   ESCAPE HTML
+========================= */
+
+function safe(value){
+
+  return String(value ?? "")
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#039;");
+
+}
+
+</script>
+
+</body>
+</html>
