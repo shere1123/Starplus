@@ -1,1 +1,4143 @@
 
+<!DOCTYPE html>
+<html lang="ne">
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width,initial-scale=1.0">
+
+<meta name="theme-color"
+content="#07111f">
+
+<title>StarPulse — Celebrity News</title>
+
+<link rel="preconnect"
+href="https://fonts.googleapis.com">
+
+<link rel="preconnect"
+href="https://fonts.gstatic.com"
+crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+Devanagari:wght@400;500;600;700;800&display=swap"
+rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+:root{
+--dark:#07111f;
+--dark2:#15385d;
+--red:#e91e63;
+--red2:#ff3d70;
+--bg:#f4f6f8;
+--white:#fff;
+--text:#18212c;
+--muted:#727c88;
+--border:#e3e7ec;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+background:var(--bg);
+color:var(--text);
+font-family:
+Inter,
+"Noto Sans Devanagari",
+Arial,
+sans-serif;
+overflow-x:hidden;
+}
+
+button,
+input{
+font-family:inherit;
+}
+
+button{
+cursor:pointer;
+}
+
+img{
+max-width:100%;
+display:block;
+}
+
+a{
+text-decoration:none;
+color:inherit;
+}
+
+
+/* ===============================
+HEADER
+================================ */
+
+.header{
+position:sticky;
+top:0;
+z-index:500;
+background:
+linear-gradient(
+135deg,
+#07111f,
+#173c64
+);
+color:white;
+box-shadow:
+0 4px 20px rgba(0,0,0,.18);
+}
+
+.header-main{
+max-width:1180px;
+margin:auto;
+min-height:70px;
+padding:11px 16px;
+display:flex;
+align-items:center;
+gap:12px;
+}
+
+.logo{
+font-size:23px;
+font-weight:800;
+white-space:nowrap;
+}
+
+.logo span{
+color:#ff3d70;
+}
+
+.menu-btn{
+width:42px;
+height:42px;
+border:0;
+border-radius:11px;
+background:rgba(255,255,255,.1);
+color:white;
+font-size:18px;
+}
+
+.search{
+margin-left:auto;
+width:340px;
+height:42px;
+background:white;
+border-radius:12px;
+display:flex;
+align-items:center;
+padding:0 12px;
+}
+
+.search i{
+color:#7b8490;
+}
+
+.search input{
+width:100%;
+border:0;
+outline:0;
+padding-left:9px;
+font-size:13px;
+}
+
+.main-nav{
+border-top:
+1px solid rgba(255,255,255,.08);
+}
+
+.main-nav-inner{
+max-width:1180px;
+margin:auto;
+display:flex;
+overflow-x:auto;
+scrollbar-width:none;
+}
+
+.main-nav-inner::-webkit-scrollbar{
+display:none;
+}
+
+.main-nav a{
+padding:12px 15px;
+color:#dbe4ed;
+font-size:12px;
+font-weight:700;
+white-space:nowrap;
+}
+
+.main-nav a:hover,
+.main-nav a.active{
+background:rgba(255,255,255,.09);
+color:white;
+}
+
+
+/* ===============================
+DRAWER
+================================ */
+
+.drawer{
+position:fixed;
+top:0;
+left:-290px;
+width:280px;
+height:100vh;
+z-index:1000;
+background:#081321;
+color:white;
+padding:18px 14px;
+transition:.3s;
+overflow-y:auto;
+}
+
+.drawer.open{
+left:0;
+}
+
+.drawer-head{
+display:flex;
+align-items:center;
+justify-content:space-between;
+margin-bottom:25px;
+}
+
+.drawer-logo{
+font-size:21px;
+font-weight:800;
+}
+
+.drawer-close{
+width:38px;
+height:38px;
+border:0;
+border-radius:10px;
+background:#18263a;
+color:white;
+}
+
+.drawer a{
+display:flex;
+align-items:center;
+gap:13px;
+padding:13px 12px;
+border-radius:10px;
+color:#dce4ed;
+font-size:14px;
+margin-bottom:4px;
+}
+
+.drawer a:hover{
+background:#17263a;
+}
+
+.backdrop{
+position:fixed;
+inset:0;
+z-index:900;
+background:rgba(0,0,0,.55);
+display:none;
+}
+
+.backdrop.show{
+display:block;
+}
+
+
+/* ===============================
+TICKER
+================================ */
+
+.ticker{
+background:#111827;
+color:white;
+overflow:hidden;
+}
+
+.ticker-inner{
+max-width:1180px;
+margin:auto;
+min-height:38px;
+display:flex;
+align-items:center;
+}
+
+.ticker-label{
+height:38px;
+background:var(--red);
+padding:0 15px;
+display:flex;
+align-items:center;
+font-size:10px;
+font-weight:800;
+white-space:nowrap;
+}
+
+.ticker-track{
+padding-left:18px;
+font-size:12px;
+white-space:nowrap;
+}
+
+
+/* ===============================
+CONTAINER
+================================ */
+
+.container{
+width:min(1180px,calc(100% - 30px));
+margin:auto;
+}
+
+
+/* ===============================
+TOP AD
+================================ */
+
+.ad-box{
+width:100%;
+min-height:105px;
+margin:12px auto;
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+overflow:hidden;
+}
+
+.ad-label{
+font-size:8px;
+color:#999;
+letter-spacing:1px;
+margin-bottom:5px;
+}
+
+.ad-desktop{
+width:728px;
+height:90px;
+max-width:100%;
+display:flex;
+justify-content:center;
+align-items:center;
+overflow:hidden;
+}
+
+.ad-mobile{
+width:320px;
+height:50px;
+max-width:100%;
+display:none;
+justify-content:center;
+align-items:center;
+overflow:hidden;
+}
+
+
+/* ===============================
+HERO
+================================ */
+
+.hero{
+display:grid;
+grid-template-columns:1.6fr 1fr;
+gap:18px;
+margin-top:18px;
+}
+
+.hero-main{
+position:relative;
+height:430px;
+overflow:hidden;
+border-radius:18px;
+background:#111;
+cursor:pointer;
+}
+
+.hero-main img{
+width:100%;
+height:100%;
+object-fit:cover;
+transition:.35s;
+}
+
+.hero-main:hover img{
+transform:scale(1.025);
+}
+
+.hero-overlay{
+position:absolute;
+inset:0;
+background:
+linear-gradient(
+to top,
+rgba(0,0,0,.9),
+rgba(0,0,0,.02) 72%
+);
+}
+
+.hero-content{
+position:absolute;
+left:0;
+right:0;
+bottom:0;
+padding:27px;
+color:white;
+}
+
+.badge{
+display:inline-block;
+padding:5px 9px;
+border-radius:5px;
+background:var(--red);
+font-size:9px;
+font-weight:800;
+margin-bottom:9px;
+}
+
+.hero-content h1{
+font-size:29px;
+line-height:1.22;
+margin-bottom:9px;
+}
+
+.hero-meta{
+font-size:11px;
+color:#d9dfe6;
+}
+
+.hero-side{
+display:grid;
+grid-template-rows:1fr 1fr;
+gap:18px;
+}
+
+.side-card{
+position:relative;
+overflow:hidden;
+border-radius:18px;
+background:#111;
+cursor:pointer;
+}
+
+.side-card img{
+position:absolute;
+inset:0;
+width:100%;
+height:100%;
+object-fit:cover;
+}
+
+.side-card::after{
+content:"";
+position:absolute;
+inset:0;
+background:
+linear-gradient(
+to top,
+rgba(0,0,0,.9),
+transparent 70%
+);
+}
+
+.side-content{
+position:absolute;
+z-index:2;
+left:17px;
+right:17px;
+bottom:15px;
+color:white;
+}
+
+.side-content h3{
+font-size:16px;
+line-height:1.35;
+}
+
+
+/* ===============================
+SECTION
+================================ */
+
+.section{
+margin-top:38px;
+}
+
+.section-head{
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding-bottom:10px;
+margin-bottom:15px;
+border-bottom:1px solid var(--border);
+}
+
+.section-head h2{
+font-size:20px;
+}
+
+.section-head a{
+font-size:11px;
+font-weight:700;
+color:var(--red);
+}
+
+
+/* ===============================
+NEWS
+================================ */
+
+.content-grid{
+display:grid;
+grid-template-columns:
+minmax(0,2fr)
+minmax(270px,1fr);
+gap:24px;
+}
+
+.news-grid{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:17px;
+}
+
+.news-card{
+background:white;
+border:1px solid var(--border);
+border-radius:14px;
+overflow:hidden;
+cursor:pointer;
+transition:.2s;
+}
+
+.news-card:hover{
+transform:translateY(-2px);
+box-shadow:
+0 8px 25px rgba(0,0,0,.07);
+}
+
+.news-card img{
+width:100%;
+height:205px;
+object-fit:cover;
+}
+
+.news-info{
+padding:14px;
+}
+
+.news-category{
+font-size:9px;
+font-weight:800;
+color:var(--red);
+margin-bottom:7px;
+text-transform:uppercase;
+}
+
+.news-title{
+font-size:16px;
+font-weight:700;
+line-height:1.4;
+}
+
+.news-meta{
+margin-top:9px;
+font-size:10px;
+color:var(--muted);
+}
+
+
+/* ===============================
+SIDEBAR
+================================ */
+
+.sidebar-box{
+background:white;
+border:1px solid var(--border);
+border-radius:14px;
+padding:16px;
+margin-bottom:17px;
+}
+
+.sidebar-box h3{
+font-size:16px;
+padding-bottom:9px;
+margin-bottom:3px;
+border-bottom:2px solid var(--red);
+}
+
+.popular-item{
+display:grid;
+grid-template-columns:85px 1fr;
+gap:10px;
+padding:11px 0;
+border-bottom:1px solid var(--border);
+cursor:pointer;
+}
+
+.popular-item:last-child{
+border-bottom:0;
+}
+
+.popular-item img{
+width:85px;
+height:62px;
+object-fit:cover;
+border-radius:7px;
+}
+
+.popular-item h4{
+font-size:12px;
+line-height:1.4;
+}
+
+.popular-item span{
+font-size:9px;
+color:var(--muted);
+display:block;
+margin-top:4px;
+}
+
+
+/* ===============================
+CATEGORIES
+================================ */
+
+.category-grid{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:13px;
+}
+
+.category-card{
+background:white;
+border:1px solid var(--border);
+border-radius:14px;
+padding:17px;
+min-height:105px;
+display:flex;
+flex-direction:column;
+justify-content:center;
+cursor:pointer;
+transition:.2s;
+}
+
+.category-card:hover{
+border-color:var(--red);
+transform:translateY(-2px);
+}
+
+.category-card i{
+font-size:21px;
+color:var(--red);
+margin-bottom:9px;
+}
+
+.category-card strong{
+font-size:13px;
+}
+
+.category-card small{
+font-size:10px;
+color:var(--muted);
+margin-top:4px;
+}
+
+
+/* ===============================
+VIDEO
+================================ */
+
+.video-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:16px;
+}
+
+.video-card{
+background:white;
+border:1px solid var(--border);
+border-radius:14px;
+overflow:hidden;
+cursor:pointer;
+}
+
+.video-thumb{
+position:relative;
+}
+
+.video-thumb img{
+width:100%;
+height:185px;
+object-fit:cover;
+}
+
+.play{
+position:absolute;
+left:50%;
+top:50%;
+transform:translate(-50%,-50%);
+width:47px;
+height:47px;
+border-radius:50%;
+background:var(--red);
+color:white;
+display:flex;
+align-items:center;
+justify-content:center;
+}
+
+.video-card h3{
+font-size:14px;
+line-height:1.4;
+padding:13px;
+}
+
+
+/* ===============================
+LOADING
+================================ */
+
+.loading{
+padding:45px 10px;
+text-align:center;
+color:var(--muted);
+}
+
+.empty{
+background:white;
+padding:35px;
+border-radius:14px;
+text-align:center;
+color:var(--muted);
+}
+
+
+/* =================================================
+ARTICLE
+================================================= */
+
+.article-modal{
+position:fixed;
+inset:0;
+z-index:2000;
+background:#edf0f3;
+display:none;
+overflow-y:auto;
+}
+
+.article-modal.show{
+display:block;
+}
+
+.article-close{
+position:fixed;
+right:17px;
+top:14px;
+z-index:2050;
+width:44px;
+height:44px;
+border:0;
+border-radius:50%;
+background:#07111f;
+color:white;
+font-size:18px;
+box-shadow:0 5px 20px rgba(0,0,0,.2);
+}
+
+.article-sheet{
+width:min(920px,calc(100% - 30px));
+margin:35px auto 50px;
+background:white;
+border-radius:17px;
+overflow:hidden;
+}
+
+.article-head{
+padding:35px 42px 24px;
+}
+
+.article-category{
+font-size:10px;
+font-weight:800;
+color:var(--red);
+margin-bottom:10px;
+text-transform:uppercase;
+}
+
+.article-head h1{
+font-size:38px;
+line-height:1.2;
+margin-bottom:14px;
+}
+
+.article-meta{
+display:flex;
+flex-wrap:wrap;
+gap:13px;
+font-size:11px;
+color:var(--muted);
+}
+
+.article-image{
+width:100%;
+max-height:530px;
+object-fit:cover;
+}
+
+.article-body{
+padding:30px 42px 45px;
+}
+
+
+/* ===============================
+ARTICLE TEXT
+================================ */
+
+.article-generated-content p{
+font-family:
+"Noto Sans Devanagari",
+Inter,
+Arial,
+sans-serif;
+
+font-size:18px;
+line-height:2;
+color:#252c34;
+margin:0 0 22px;
+}
+
+
+/* =================================================
+AUTO ADS INSIDE ARTICLE
+================================================= */
+
+.article-inline-ad{
+width:100%;
+min-height:110px;
+margin:30px auto;
+padding:10px 0;
+background:#fafafa;
+border-top:1px solid #eeeeee;
+border-bottom:1px solid #eeeeee;
+
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+
+overflow:hidden;
+clear:both;
+}
+
+.article-ad-label{
+font-size:8px;
+color:#999;
+letter-spacing:1px;
+margin-bottom:6px;
+}
+
+
+/* 320 x 50 */
+
+.article-ad-320{
+width:320px;
+height:50px;
+max-width:100%;
+display:flex;
+align-items:center;
+justify-content:center;
+overflow:hidden;
+}
+
+
+/* 728 x 90 */
+
+.article-ad-728{
+width:728px;
+height:90px;
+max-width:100%;
+display:flex;
+align-items:center;
+justify-content:center;
+overflow:hidden;
+}
+
+
+/* ===============================
+YOUTUBE
+================================ */
+
+.article-youtube{
+margin-top:30px;
+}
+
+.article-youtube h3{
+font-size:17px;
+margin-bottom:12px;
+}
+
+.youtube-frame{
+position:relative;
+width:100%;
+padding-top:56.25%;
+background:#111;
+border-radius:12px;
+overflow:hidden;
+}
+
+.youtube-frame iframe{
+position:absolute;
+inset:0;
+width:100%;
+height:100%;
+border:0;
+}
+
+
+/* ===============================
+SHARE
+================================ */
+
+.share-box{
+display:flex;
+flex-wrap:wrap;
+gap:8px;
+margin-top:30px;
+padding-top:20px;
+border-top:1px solid var(--border);
+}
+
+.share-box strong{
+width:100%;
+font-size:14px;
+margin-bottom:3px;
+}
+
+.share-btn{
+border:0;
+border-radius:8px;
+padding:9px 11px;
+background:#eef1f4;
+font-size:11px;
+font-weight:700;
+color:#202832;
+}
+
+
+/* ===============================
+RELATED
+================================ */
+
+.related{
+margin-top:35px;
+padding-top:20px;
+border-top:1px solid var(--border);
+}
+
+.related h3{
+font-size:18px;
+margin-bottom:13px;
+}
+
+.related-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:12px;
+}
+
+.related-card{
+border:1px solid var(--border);
+border-radius:9px;
+overflow:hidden;
+cursor:pointer;
+}
+
+.related-card img{
+width:100%;
+height:100px;
+object-fit:cover;
+}
+
+.related-card h4{
+padding:9px;
+font-size:11px;
+line-height:1.4;
+}
+
+
+/* ===============================
+FOOTER
+================================ */
+
+.footer{
+margin-top:55px;
+padding:40px 0 25px;
+background:#07111f;
+color:#d6dde6;
+}
+
+.footer-grid{
+max-width:1180px;
+margin:auto;
+padding:0 17px;
+display:grid;
+grid-template-columns:2fr 1fr 1fr 1fr;
+gap:28px;
+}
+
+.footer h3{
+font-size:16px;
+color:white;
+margin-bottom:12px;
+}
+
+.footer p,
+.footer a{
+font-size:11px;
+line-height:1.8;
+color:#9ca9b9;
+}
+
+.footer a{
+display:block;
+}
+
+.footer-bottom{
+max-width:1180px;
+margin:28px auto 0;
+padding:17px;
+border-top:1px solid rgba(255,255,255,.08);
+text-align:center;
+font-size:10px;
+color:#7d8998;
+}
+
+
+/* =================================================
+RESPONSIVE
+================================================= */
+
+@media(max-width:900px){
+
+.hero{
+grid-template-columns:1fr;
+}
+
+.hero-side{
+grid-template-columns:1fr 1fr;
+grid-template-rows:none;
+}
+
+.content-grid{
+grid-template-columns:1fr;
+}
+
+.category-grid{
+grid-template-columns:repeat(2,1fr);
+}
+
+.footer-grid{
+grid-template-columns:repeat(2,1fr);
+}
+
+}
+
+
+@media(max-width:767px){
+
+.header-main{
+min-height:62px;
+padding:9px 11px;
+}
+
+.logo{
+font-size:18px;
+}
+
+.menu-btn{
+width:38px;
+height:38px;
+}
+
+.search{
+height:38px;
+width:auto;
+flex:1;
+}
+
+.ad-desktop{
+display:none;
+}
+
+.ad-mobile{
+display:flex;
+}
+
+.ad-box{
+min-height:65px;
+margin:8px auto;
+}
+
+
+/* Hero */
+
+.hero-main{
+height:300px;
+}
+
+.hero-content{
+padding:20px;
+}
+
+.hero-content h1{
+font-size:22px;
+}
+
+.side-card{
+min-height:165px;
+}
+
+.side-content{
+left:12px;
+right:12px;
+bottom:12px;
+}
+
+.side-content h3{
+font-size:13px;
+}
+
+
+/* News */
+
+.news-grid{
+grid-template-columns:1fr 1fr;
+gap:9px;
+}
+
+.news-card img{
+height:140px;
+}
+
+.news-info{
+padding:10px;
+}
+
+.news-title{
+font-size:13px;
+}
+
+.news-meta{
+font-size:8px;
+}
+
+
+/* Categories */
+
+.category-grid{
+grid-template-columns:1fr 1fr;
+gap:9px;
+}
+
+.category-card{
+min-height:92px;
+padding:13px;
+}
+
+
+/* Video */
+
+.video-grid{
+grid-template-columns:1fr;
+}
+
+
+/* Article */
+
+.article-sheet{
+width:100%;
+min-height:100vh;
+margin:0;
+border-radius:0;
+}
+
+.article-head{
+padding:70px 18px 20px;
+}
+
+.article-head h1{
+font-size:27px;
+}
+
+.article-body{
+padding:22px 18px 40px;
+}
+
+.article-generated-content p{
+font-size:17px;
+line-height:1.9;
+}
+
+.article-inline-ad{
+margin:25px auto;
+min-height:72px;
+}
+
+
+/*
+728 ad container is kept inside
+mobile width so it doesn't create
+horizontal page scrolling.
+*/
+
+.article-ad-728{
+width:100%;
+height:90px;
+max-width:100%;
+}
+
+.article-ad-320{
+width:320px;
+max-width:100%;
+height:50px;
+}
+
+
+/* Related */
+
+.related-grid{
+grid-template-columns:1fr 1fr;
+}
+
+
+/* Footer */
+
+.footer-grid{
+grid-template-columns:1fr;
+}
+
+}
+
+
+@media(max-width:380px){
+
+.logo{
+font-size:16px;
+}
+
+.hero-content h1{
+font-size:19px;
+}
+
+.news-title{
+font-size:12px;
+}
+
+.article-generated-content p{
+font-size:16px;
+}
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =================================================
+HEADER
+================================================= -->
+
+<header class="header">
+
+<div class="header-main">
+
+<button
+class="menu-btn"
+onclick="toggleDrawer()">
+
+<i class="fa-solid fa-bars"></i>
+
+</button>
+
+
+<div class="logo">
+Star<span>Pulse</span>
+</div>
+
+
+<div class="search">
+
+<i class="fa-solid fa-magnifying-glass"></i>
+
+<input
+id="searchInput"
+type="search"
+placeholder="Search celebrity news..."
+oninput="searchNews(this.value)"
+>
+
+</div>
+
+</div>
+
+
+<nav class="main-nav">
+
+<div class="main-nav-inner">
+
+<a href="#"
+class="active"
+onclick="filterCategory('All',event)">
+Latest
+</a>
+
+<a href="#"
+onclick="filterCategory('Nepali',event)">
+Nepali Celebrities
+</a>
+
+<a href="#"
+onclick="filterCategory('Bollywood',event)">
+Bollywood
+</a>
+
+<a href="#"
+onclick="filterCategory('Hollywood',event)">
+Hollywood
+</a>
+
+<a href="#"
+onclick="filterCategory('Music',event)">
+Music
+</a>
+
+<a href="#"
+onclick="filterCategory('Movies',event)">
+Movies & TV
+</a>
+
+<a href="#"
+onclick="filterCategory('Lifestyle',event)">
+Lifestyle
+</a>
+
+<a href="#"
+onclick="filterCategory('Videos',event)">
+Videos
+</a>
+
+</div>
+
+</nav>
+
+</header>
+
+
+<!-- =================================================
+DRAWER
+================================================= -->
+
+<div
+class="drawer"
+id="drawer">
+
+<div class="drawer-head">
+
+<div class="drawer-logo">
+StarPulse
+</div>
+
+<button
+class="drawer-close"
+onclick="toggleDrawer(false)">
+
+<i class="fa-solid fa-xmark"></i>
+
+</button>
+
+</div>
+
+
+<a href="#"
+onclick="goHome()">
+
+<i class="fa-solid fa-house"></i>
+Home
+
+</a>
+
+
+<a href="#"
+onclick="filterCategory('Nepali',event)">
+
+<i class="fa-solid fa-star"></i>
+Nepali Celebrities
+
+</a>
+
+
+<a href="#"
+onclick="filterCategory('Bollywood',event)">
+
+<i class="fa-solid fa-film"></i>
+Bollywood
+
+</a>
+
+
+<a href="#"
+onclick="filterCategory('Hollywood',event)">
+
+<i class="fa-solid fa-clapperboard"></i>
+Hollywood
+
+</a>
+
+
+<a href="#"
+onclick="filterCategory('Music',event)">
+
+<i class="fa-solid fa-music"></i>
+Music
+
+</a>
+
+
+<a href="#"
+onclick="filterCategory('Movies',event)">
+
+<i class="fa-solid fa-tv"></i>
+Movies & TV
+
+</a>
+
+
+<a href="#"
+onclick="filterCategory('Lifestyle',event)">
+
+<i class="fa-solid fa-heart"></i>
+Lifestyle
+
+</a>
+
+
+<a href="#"
+onclick="filterCategory('Videos',event)">
+
+<i class="fa-solid fa-video"></i>
+Videos
+
+</a>
+
+
+<a href="#footer">
+
+<i class="fa-solid fa-circle-info"></i>
+About
+
+</a>
+
+
+<a href="#footer">
+
+<i class="fa-solid fa-envelope"></i>
+Contact
+
+</a>
+
+</div>
+
+
+<div
+class="backdrop"
+id="backdrop"
+onclick="toggleDrawer(false)">
+</div>
+
+
+<!-- =================================================
+TICKER
+================================================= -->
+
+<div class="ticker">
+
+<div class="ticker-inner">
+
+<div class="ticker-label">
+
+<i class="fa-solid fa-bolt"></i>
+&nbsp; BREAKING
+
+</div>
+
+<div
+class="ticker-track"
+id="tickerTrack">
+
+StarPulse मा नयाँ celebrity news पढ्नुहोस् •
+Nepal • Bollywood • Hollywood • Music • Movies • Lifestyle
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- =================================================
+TOP AD
+================================================= -->
+
+<div class="container">
+
+<div class="ad-box">
+
+<div class="ad-label">
+ADVERTISEMENT
+</div>
+
+
+<!-- 728x90 DESKTOP -->
+
+<div class="ad-desktop">
+
+<script>
+
+atOptions = {
+
+'key':
+'1ae7e4561f927e2fe06c78e424dd0ffd',
+
+'format':
+'iframe',
+
+'height':
+90,
+
+'width':
+728,
+
+'params':{}
+
+};
+
+</script>
+
+
+<script
+src="https://www.highrevenueformat.com/1ae7e4561f927e2fe06c78e424dd0ffd/invoke.js">
+</script>
+
+</div>
+
+
+<!-- 320x50 MOBILE -->
+
+<div class="ad-mobile">
+
+<script>
+
+atOptions = {
+
+'key':
+'5a52038c2104e86f78b97b96b4eb5fab',
+
+'format':
+'iframe',
+
+'height':
+50,
+
+'width':
+320,
+
+'params':{}
+
+};
+
+</script>
+
+
+<script
+src="https://www.highrevenueformat.com/5a52038c2104e86f78b97b96b4eb5fab/invoke.js">
+</script>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- =================================================
+MAIN
+================================================= -->
+
+<main class="container">
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+
+<div
+class="hero-main"
+onclick="openHero()">
+
+<img
+id="heroImage"
+src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=1200&q=80"
+alt="Celebrity">
+
+<div class="hero-overlay"></div>
+
+<div class="hero-content">
+
+<div
+class="badge"
+id="heroCategory">
+
+FEATURED
+
+</div>
+
+<h1 id="heroTitle">
+StarPulse Celebrity News
+</h1>
+
+<div
+class="hero-meta"
+id="heroMeta">
+
+Latest entertainment news
+
+</div>
+
+</div>
+
+</div>
+
+
+<div class="hero-side">
+
+
+<div
+class="side-card"
+onclick="openSide(0)">
+
+<img
+id="sideImage1"
+src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=800&q=80"
+alt="News">
+
+<div class="side-content">
+
+<div class="badge">
+TRENDING
+</div>
+
+<h3 id="sideTitle1">
+Celebrity Trending News
+</h3>
+
+</div>
+
+</div>
+
+
+<div
+class="side-card"
+onclick="openSide(1)">
+
+<img
+id="sideImage2"
+src="https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=800&q=80"
+alt="Movies">
+
+<div class="side-content">
+
+<div class="badge">
+LATEST
+</div>
+
+<h3 id="sideTitle2">
+Latest Movies & Entertainment
+</h3>
+
+</div>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- LATEST -->
+
+<section class="section">
+
+<div class="section-head">
+
+<h2>
+Latest News
+</h2>
+
+<a href="#"
+onclick="filterCategory('All',event)">
+View All
+</a>
+
+</div>
+
+
+<div class="content-grid">
+
+
+<div>
+
+<div
+id="newsGrid"
+class="news-grid">
+
+<div class="loading">
+
+<i class="fa-solid fa-spinner fa-spin"></i>
+
+<br><br>
+
+News loading...
+
+</div>
+
+</div>
+
+</div>
+
+
+<aside>
+
+
+<div class="sidebar-box">
+
+<h3>
+<i class="fa-solid fa-fire"></i>
+Trending
+</h3>
+
+
+<div id="popularList">
+
+<div class="loading">
+Loading...
+</div>
+
+</div>
+
+</div>
+
+
+<div class="sidebar-box">
+
+<h3>
+Popular Categories
+</h3>
+
+
+<a href="#"
+onclick="filterCategory('Nepali',event)">
+🇳🇵 Nepali Celebrities
+</a>
+
+
+<a href="#"
+onclick="filterCategory('Bollywood',event)">
+🎬 Bollywood
+</a>
+
+
+<a href="#"
+onclick="filterCategory('Hollywood',event)">
+🎥 Hollywood
+</a>
+
+
+<a href="#"
+onclick="filterCategory('Music',event)">
+🎵 Music
+</a>
+
+</div>
+
+</aside>
+
+</div>
+
+</section>
+
+
+<!-- CATEGORIES -->
+
+<section class="section">
+
+<div class="section-head">
+
+<h2>
+Explore Categories
+</h2>
+
+</div>
+
+
+<div class="category-grid">
+
+
+<div
+class="category-card"
+onclick="filterCategory('Nepali')">
+
+<i class="fa-solid fa-star"></i>
+
+<strong>
+Nepali Celebrities
+</strong>
+
+<small>
+Actors, singers & influencers
+</small>
+
+</div>
+
+
+<div
+class="category-card"
+onclick="filterCategory('Bollywood')">
+
+<i class="fa-solid fa-film"></i>
+
+<strong>
+Bollywood
+</strong>
+
+<small>
+Indian cinema & stars
+</small>
+
+</div>
+
+
+<div
+class="category-card"
+onclick="filterCategory('Hollywood')">
+
+<i class="fa-solid fa-clapperboard"></i>
+
+<strong>
+Hollywood
+</strong>
+
+<small>
+Global movie stars
+</small>
+
+</div>
+
+
+<div
+class="category-card"
+onclick="filterCategory('Music')">
+
+<i class="fa-solid fa-music"></i>
+
+<strong>
+Music
+</strong>
+
+<small>
+Singers & releases
+</small>
+
+</div>
+
+
+<div
+class="category-card"
+onclick="filterCategory('Movies')">
+
+<i class="fa-solid fa-tv"></i>
+
+<strong>
+Movies & TV
+</strong>
+
+<small>
+Films, series & shows
+</small>
+
+</div>
+
+
+<div
+class="category-card"
+onclick="filterCategory('Lifestyle')">
+
+<i class="fa-solid fa-heart"></i>
+
+<strong>
+Lifestyle
+</strong>
+
+<small>
+Fashion & lifestyle
+</small>
+
+</div>
+
+
+<div
+class="category-card"
+onclick="filterCategory('Videos')">
+
+<i class="fa-solid fa-video"></i>
+
+<strong>
+Videos
+</strong>
+
+<small>
+Celebrity videos
+</small>
+
+</div>
+
+
+<div
+class="category-card"
+onclick="filterCategory('Photos')">
+
+<i class="fa-solid fa-camera"></i>
+
+<strong>
+Photos
+</strong>
+
+<small>
+Celebrity gallery
+</small>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- VIDEOS -->
+
+<section class="section">
+
+<div class="section-head">
+
+<h2>
+Latest Videos
+</h2>
+
+<a href="#"
+onclick="filterCategory('Videos',event)">
+View All
+</a>
+
+</div>
+
+
+<div
+id="videoGrid"
+class="video-grid">
+
+<div class="loading">
+Video loading...
+</div>
+
+</div>
+
+</section>
+
+</main>
+
+
+<!-- =================================================
+ARTICLE MODAL
+================================================= -->
+
+<div
+class="article-modal"
+id="articleModal">
+
+
+<button
+class="article-close"
+onclick="closeArticle()">
+
+<i class="fa-solid fa-xmark"></i>
+
+</button>
+
+
+<article class="article-sheet">
+
+
+<div class="article-head">
+
+
+<div
+class="article-category"
+id="articleCategory">
+NEWS
+</div>
+
+
+<h1 id="articleTitle">
+News title
+</h1>
+
+
+<div class="article-meta">
+
+<span id="articleCelebrity">
+<i class="fa-solid fa-user"></i>
+Celebrity
+</span>
+
+
+<span id="articleDate">
+<i class="fa-regular fa-calendar"></i>
+Date
+</span>
+
+
+<span id="articleViews">
+<i class="fa-regular fa-eye"></i>
+0 views
+</span>
+
+</div>
+
+</div>
+
+
+<img
+id="articleImage"
+class="article-image"
+src=""
+alt="News">
+
+
+<div class="article-body">
+
+
+<div
+id="articleContent">
+</div>
+
+
+<!-- YOUTUBE -->
+
+<div
+id="articleYoutube"
+class="article-youtube"
+style="display:none;">
+
+<h3>
+<i class="fa-brands fa-youtube"></i>
+Related Video
+</h3>
+
+
+<div class="youtube-frame">
+
+<iframe
+id="youtubeFrame"
+src=""
+allowfullscreen>
+</iframe>
+
+</div>
+
+</div>
+
+
+<!-- SHARE -->
+
+<div class="share-box">
+
+<strong>
+Share this news
+</strong>
+
+
+<button
+class="share-btn"
+onclick="shareWhatsApp()">
+
+<i class="fa-brands fa-whatsapp"></i>
+WhatsApp
+
+</button>
+
+
+<button
+class="share-btn"
+onclick="shareFacebook()">
+
+<i class="fa-brands fa-facebook"></i>
+Facebook
+
+</button>
+
+
+<button
+class="share-btn"
+onclick="shareTelegram()">
+
+<i class="fa-brands fa-telegram"></i>
+Telegram
+
+</button>
+
+
+<button
+class="share-btn"
+onclick="copyArticleLink()">
+
+<i class="fa-solid fa-link"></i>
+Copy Link
+
+</button>
+
+
+<button
+class="share-btn"
+onclick="nativeShare()">
+
+<i class="fa-solid fa-share-nodes"></i>
+Share
+
+</button>
+
+</div>
+
+
+<!-- RELATED -->
+
+<div class="related">
+
+<h3>
+Related Stories
+</h3>
+
+
+<div
+id="relatedGrid"
+class="related-grid">
+</div>
+
+</div>
+
+</div>
+
+</article>
+
+</div>
+
+
+<!-- =================================================
+FOOTER
+================================================= -->
+
+<footer
+class="footer"
+id="footer">
+
+<div class="footer-grid">
+
+
+<div>
+
+<h3>
+StarPulse
+</h3>
+
+<p>
+StarPulse is an entertainment news portal
+covering Nepali celebrities, Bollywood,
+Hollywood, music, movies, television and lifestyle.
+</p>
+
+</div>
+
+
+<div>
+
+<h3>
+Categories
+</h3>
+
+<a href="#"
+onclick="filterCategory('Nepali',event)">
+Nepali
+</a>
+
+<a href="#"
+onclick="filterCategory('Bollywood',event)">
+Bollywood
+</a>
+
+<a href="#"
+onclick="filterCategory('Hollywood',event)">
+Hollywood
+</a>
+
+<a href="#"
+onclick="filterCategory('Music',event)">
+Music
+</a>
+
+</div>
+
+
+<div>
+
+<h3>
+Information
+</h3>
+
+<a href="#">
+About Us
+</a>
+
+<a href="#">
+Privacy Policy
+</a>
+
+<a href="#">
+Terms & Conditions
+</a>
+
+<a href="#">
+Contact
+</a>
+
+</div>
+
+
+<div>
+
+<h3>
+Follow Us
+</h3>
+
+<a href="#">
+<i class="fa-brands fa-facebook"></i>
+Facebook
+</a>
+
+<a href="#">
+<i class="fa-brands fa-instagram"></i>
+Instagram
+</a>
+
+<a href="#">
+<i class="fa-brands fa-youtube"></i>
+YouTube
+</a>
+
+</div>
+
+
+</div>
+
+
+<div class="footer-bottom">
+
+© 2026 StarPulse. All Rights Reserved.
+
+</div>
+
+</footer>
+
+
+<!-- =================================================
+FIREBASE
+================================================= -->
+
+<script type="module">
+
+import {
+initializeApp
+}
+from
+"https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+
+import {
+getFirestore,
+collection,
+getDocs,
+doc,
+updateDoc,
+increment
+}
+from
+"https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+
+/* =================================================
+FIREBASE CONFIG
+================================================= */
+
+const firebaseConfig = {
+
+apiKey:
+"AIzaSyAugOzRINjz2TTZVazdZN-novPV7R94yAo",
+
+authDomain:
+"mero-news-porttal.firebaseapp.com",
+
+projectId:
+"mero-news-porttal",
+
+storageBucket:
+"mero-news-porttal.firebasestorage.app",
+
+messagingSenderId:
+"779470078737",
+
+appId:
+"1:779470078737:web:f2cbae6da4f855464042b0"
+
+};
+
+
+const app =
+initializeApp(firebaseConfig);
+
+
+const db =
+getFirestore(app);
+
+
+/* =================================================
+GLOBAL
+================================================= */
+
+let allNews = [];
+
+let currentPost = null;
+
+let heroPost = null;
+
+let sidePosts = [];
+
+
+/*
+  IMPORTANT:
+  All dynamic ads are placed into
+  this queue one by one.
+*/
+
+let articleAdQueue =
+Promise.resolve();
+
+
+/* =================================================
+ESCAPE HTML
+================================================= */
+
+function escapeHTML(value){
+
+return String(value ?? "")
+.replace(/&/g,"&amp;")
+.replace(/</g,"&lt;")
+.replace(/>/g,"&gt;")
+.replace(/"/g,"&quot;")
+.replace(/'/g,"&#039;");
+
+}
+
+
+/* =================================================
+DATE
+================================================= */
+
+function formatDate(value){
+
+if(!value){
+return "";
+}
+
+try{
+
+if(
+value &&
+typeof value.toDate === "function"
+){
+
+value =
+value.toDate();
+
+}
+
+const date =
+new Date(value);
+
+if(
+isNaN(date.getTime())
+){
+
+return "";
+
+}
+
+return date.toLocaleDateString(
+"en-US",
+{
+year:"numeric",
+month:"short",
+day:"numeric"
+}
+);
+
+}catch(error){
+
+return "";
+
+}
+
+}
+
+
+/* =================================================
+LOAD NEWS
+================================================= */
+
+async function loadNews(){
+
+const grid =
+document.getElementById(
+"newsGrid"
+);
+
+try{
+
+const snapshot =
+await getDocs(
+collection(
+db,
+"news"
+)
+);
+
+
+allNews =
+snapshot.docs.map(
+item => {
+
+return {
+
+id:item.id,
+...item.data()
+
+};
+
+});
+
+
+/*
+Sort newest first
+*/
+
+allNews.sort(
+(a,b)=>{
+
+const dateA =
+a.createdAt?.toDate?.() ||
+new Date(a.date || 0);
+
+const dateB =
+b.createdAt?.toDate?.() ||
+new Date(b.date || 0);
+
+return dateB - dateA;
+
+});
+
+
+renderHome();
+
+openHashArticle();
+
+
+}catch(error){
+
+console.error(error);
+
+
+grid.innerHTML = `
+
+<div class="empty">
+
+News load हुन सकेन।
+
+<br><br>
+
+Firebase configuration वा
+Firestore rules जाँच गर्नुहोस्।
+
+</div>
+
+`;
+
+}
+
+}
+
+
+/* =================================================
+HOME
+================================================= */
+
+function renderHome(){
+
+renderNews(
+allNews.slice(0,12)
+);
+
+renderPopular();
+
+renderHero();
+
+renderVideos();
+
+}
+
+
+/* =================================================
+NEWS GRID
+================================================= */
+
+function renderNews(list){
+
+const grid =
+document.getElementById(
+"newsGrid"
+);
+
+
+if(!list.length){
+
+grid.innerHTML = `
+
+<div class="empty">
+
+कुनै समाचार भेटिएन।
+
+</div>
+
+`;
+
+return;
+
+}
+
+
+grid.innerHTML =
+list.map(
+post=>{
+
+const image =
+post.image ||
+"https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=900&q=80";
+
+
+return `
+
+<article
+class="news-card"
+onclick="openPostById('${post.id}')">
+
+<img
+src="${escapeHTML(image)}"
+alt="${escapeHTML(post.title || "News")}"
+loading="lazy">
+
+<div class="news-info">
+
+<div class="news-category">
+
+${escapeHTML(
+post.category || "News"
+)}
+
+</div>
+
+<div class="news-title">
+
+${escapeHTML(
+post.title || "Untitled News"
+)}
+
+</div>
+
+<div class="news-meta">
+
+${formatDate(
+post.date ||
+post.createdAt
+)}
+
+${
+post.celebrity
+?
+" • " +
+escapeHTML(post.celebrity)
+:
+""
+}
+
+</div>
+
+</div>
+
+</article>
+
+`;
+
+}
+).join("");
+
+}
+
+
+/* =================================================
+HERO
+================================================= */
+
+function renderHero(){
+
+if(!allNews.length){
+return;
+}
+
+
+heroPost =
+allNews.find(
+post =>
+post.featured === true
+) ||
+allNews[0];
+
+
+sidePosts =
+allNews
+.filter(
+post =>
+post.id !== heroPost.id
+)
+.slice(0,2);
+
+
+document.getElementById(
+"heroImage"
+).src =
+heroPost.image ||
+"https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=1200&q=80";
+
+
+document.getElementById(
+"heroTitle"
+).textContent =
+heroPost.title ||
+"StarPulse Celebrity News";
+
+
+document.getElementById(
+"heroCategory"
+).textContent =
+heroPost.category ||
+"FEATURED";
+
+
+document.getElementById(
+"heroMeta"
+).textContent =
+
+formatDate(
+heroPost.date ||
+heroPost.createdAt
+)
++
+(
+heroPost.celebrity
+?
+" • " +
+heroPost.celebrity
+:
+""
+);
+
+
+if(sidePosts[0]){
+
+document.getElementById(
+"sideImage1"
+).src =
+sidePosts[0].image ||
+"https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=800&q=80";
+
+
+document.getElementById(
+"sideTitle1"
+).textContent =
+sidePosts[0].title || "";
+
+}
+
+
+if(sidePosts[1]){
+
+document.getElementById(
+"sideImage2"
+).src =
+sidePosts[1].image ||
+"https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=800&q=80";
+
+
+document.getElementById(
+"sideTitle2"
+).textContent =
+sidePosts[1].title || "";
+
+}
+
+}
+
+
+/* =================================================
+POPULAR
+================================================= */
+
+function renderPopular(){
+
+const box =
+document.getElementById(
+"popularList"
+);
+
+
+const list =
+[...allNews]
+.sort(
+(a,b)=>
+Number(b.views || 0) -
+Number(a.views || 0)
+)
+.slice(0,6);
+
+
+if(!list.length){
+
+box.innerHTML =
+`
+<div class="empty">
+No trending news
+</div>
+`;
+
+return;
+
+}
+
+
+box.innerHTML =
+list.map(
+post=>{
+
+const image =
+post.image ||
+"https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=500&q=80";
+
+
+return `
+
+<div
+class="popular-item"
+onclick="openPostById('${post.id}')">
+
+<img
+src="${escapeHTML(image)}"
+alt=""
+loading="lazy">
+
+<div>
+
+<h4>
+${escapeHTML(
+post.title || ""
+)}
+</h4>
+
+<span>
+
+<i class="fa-regular fa-eye"></i>
+
+${Number(
+post.views || 0
+)}
+views
+
+</span>
+
+</div>
+
+</div>
+
+`;
+
+}
+).join("");
+
+}
+
+
+/* =================================================
+VIDEOS
+================================================= */
+
+function renderVideos(){
+
+const grid =
+document.getElementById(
+"videoGrid"
+);
+
+
+const videos =
+allNews
+.filter(
+post =>
+post.youtubeId
+)
+.slice(0,6);
+
+
+if(!videos.length){
+
+grid.innerHTML =
+`
+<div class="empty">
+अहिले video उपलब्ध छैन।
+</div>
+`;
+
+return;
+
+}
+
+
+grid.innerHTML =
+videos.map(
+post=>{
+
+const thumb =
+"https://img.youtube.com/vi/" +
+encodeURIComponent(
+post.youtubeId
+) +
+"/hqdefault.jpg";
+
+
+return `
+
+<div
+class="video-card"
+onclick="openPostById('${post.id}')">
+
+<div class="video-thumb">
+
+<img
+src="${thumb}"
+alt=""
+loading="lazy">
+
+<div class="play">
+
+<i class="fa-solid fa-play"></i>
+
+</div>
+
+</div>
+
+<h3>
+
+${escapeHTML(
+post.title || ""
+)}
+
+</h3>
+
+</div>
+
+`;
+
+}
+).join("");
+
+}
+
+
+/* =================================================
+CATEGORY
+================================================= */
+
+window.filterCategory =
+function(category,event){
+
+if(event){
+
+event.preventDefault();
+
+}
+
+
+toggleDrawer(false);
+
+
+let result;
+
+
+if(
+String(category).toLowerCase()
+===
+"all"
+){
+
+result =
+allNews;
+
+}else{
+
+result =
+allNews.filter(
+post =>
+String(
+post.category || ""
+)
+.toLowerCase()
+===
+String(category).toLowerCase()
+);
+
+}
+
+
+renderNews(
+result.slice(0,50)
+);
+
+
+document.getElementById(
+"newsGrid"
+)
+.scrollIntoView({
+behavior:"smooth",
+block:"start"
+});
+
+};
+
+
+/* =================================================
+SEARCH
+================================================= */
+
+window.searchNews =
+function(query){
+
+query =
+String(query || "")
+.trim()
+.toLowerCase();
+
+
+if(!query){
+
+renderNews(
+allNews.slice(0,12)
+);
+
+return;
+
+}
+
+
+const result =
+allNews.filter(
+post=>{
+
+const text =
+[
+post.title,
+post.celebrity,
+post.category,
+post.excerpt,
+post.content
+]
+.join(" ")
+.toLowerCase();
+
+
+return text.includes(
+query
+);
+
+});
+
+
+renderNews(result);
+
+};
+
+
+/* =================================================
+CREATE ARTICLE AD
+================================================= */
+
+function createArticleAd(type){
+
+const wrapper =
+document.createElement(
+"div"
+);
+
+wrapper.className =
+"article-inline-ad";
+
+
+const label =
+document.createElement(
+"div"
+);
+
+label.className =
+"article-ad-label";
+
+label.textContent =
+"ADVERTISEMENT";
+
+
+const ad =
+document.createElement(
+"div"
+);
+
+
+if(type === "320"){
+
+ad.className =
+"article-ad-320";
+
+}else{
+
+ad.className =
+"article-ad-728";
+
+}
+
+
+wrapper.appendChild(label);
+
+wrapper.appendChild(ad);
+
+
+return {
+
+wrapper,
+ad
+
+};
+
+}
+
+
+/* =================================================
+LOAD 320 AD
+================================================= */
+
+function load320Ad(adBox){
+
+articleAdQueue =
+articleAdQueue.then(
+()=>{
+
+return new Promise(
+resolve=>{
+
+/*
+  Set options immediately
+  before invoke.js.
+*/
+
+window.atOptions = {
+
+'key':
+'5a52038c2104e86f78b97b96b4eb5fab',
+
+'format':
+'iframe',
+
+'height':
+50,
+
+'width':
+320,
+
+'params':{}
+
+};
+
+
+const script =
+document.createElement(
+"script"
+);
+
+script.src =
+"https://www.highrevenueformat.com/5a52038c2104e86f78b97b96b4eb5fab/invoke.js";
+
+
+/*
+  Prevent simultaneous
+  ad scripts from racing.
+*/
+
+script.async =
+false;
+
+
+script.onload =
+function(){
+
+setTimeout(
+resolve,
+500
+);
+
+};
+
+
+script.onerror =
+function(){
+
+resolve();
+
+};
+
+
+adBox.appendChild(
+script
+);
+
+});
+
+});
+
+}
+
+
+/* =================================================
+LOAD 728 AD
+================================================= */
+
+function load728Ad(adBox){
+
+articleAdQueue =
+articleAdQueue.then(
+()=>{
+
+return new Promise(
+resolve=>{
+
+window.atOptions = {
+
+'key':
+'1ae7e4561f927e2fe06c78e424dd0ffd',
+
+'format':
+'iframe',
+
+'height':
+90,
+
+'width':
+728,
+
+'params':{}
+
+};
+
+
+const script =
+document.createElement(
+"script"
+);
+
+script.src =
+"https://www.highrevenueformat.com/1ae7e4561f927e2fe06c78e424dd0ffd/invoke.js";
+
+
+script.async =
+false;
+
+
+script.onload =
+function(){
+
+setTimeout(
+resolve,
+500
+);
+
+};
+
+
+script.onerror =
+function(){
+
+resolve();
+
+};
+
+
+adBox.appendChild(
+script
+);
+
+});
+
+});
+
+}
+
+
+/* =================================================
+BUILD ARTICLE
+================================================= */
+
+function buildArticleContent(post){
+
+const raw =
+String(
+post.content || ""
+).trim();
+
+
+const container =
+document.createElement(
+"div"
+);
+
+container.className =
+"article-generated-content";
+
+
+if(!raw){
+
+const p =
+document.createElement("p");
+
+p.textContent =
+"समाचारको विस्तृत सामग्री उपलब्ध छैन।";
+
+container.appendChild(p);
+
+return container;
+
+}
+
+
+/*
+IMPORTANT:
+
+Split article into words.
+
+50  = 320
+100 = 728
+150 = 320
+200 = 728
+250 = 320
+300 = 728
+*/
+
+const words =
+raw
+.split(/\s+/)
+.filter(Boolean);
+
+
+let buffer = [];
+
+
+words.forEach(
+(word,index)=>{
+
+buffer.push(word);
+
+
+const wordNumber =
+index + 1;
+
+
+/*
+  Every 50 words
+*/
+
+if(
+wordNumber % 50 === 0
+){
+
+/*
+  Add paragraph
+*/
+
+const p =
+document.createElement(
+"p"
+);
+
+p.textContent =
+buffer.join(" ");
+
+container.appendChild(p);
+
+buffer = [];
+
+
+/*
+  50 / 150 / 250...
+  = 320x50
+*/
+
+if(
+wordNumber % 100 !== 0
+){
+
+const result =
+createArticleAd("320");
+
+
+container.appendChild(
+result.wrapper
+);
+
+
+/*
+  Load AFTER the ad
+  element is inserted
+  into article DOM.
+*/
+
+load320Ad(
+result.ad
+);
+
+}
+
+
+/*
+  100 / 200 / 300...
+  = 728x90
+*/
+
+else{
+
+const result =
+createArticleAd("728");
+
+
+container.appendChild(
+result.wrapper
+);
+
+
+load728Ad(
+result.ad
+);
+
+}
+
+}
+
+});
+
+
+/*
+Remaining words
+*/
+
+if(buffer.length){
+
+const p =
+document.createElement(
+"p"
+);
+
+p.textContent =
+buffer.join(" ");
+
+container.appendChild(p);
+
+}
+
+
+return container;
+
+}
+
+
+/* =================================================
+OPEN ARTICLE
+================================================= */
+
+window.openPostById =
+async function(id){
+
+const post =
+allNews.find(
+item =>
+item.id === id
+);
+
+
+if(post){
+
+await openPost(post);
+
+}
+
+};
+
+
+async function openPost(post){
+
+currentPost =
+post;
+
+
+/*
+Reset ad queue for this article.
+*/
+
+articleAdQueue =
+Promise.resolve();
+
+
+document.getElementById(
+"articleCategory"
+).textContent =
+post.category ||
+"NEWS";
+
+
+document.getElementById(
+"articleTitle"
+).textContent =
+post.title ||
+"";
+
+
+document.getElementById(
+"articleCelebrity"
+).innerHTML =
+
+`
+<i class="fa-solid fa-user"></i>
+${escapeHTML(
+post.celebrity ||
+"StarPulse"
+)}
+`;
+
+
+document.getElementById(
+"articleDate"
+).innerHTML =
+
+`
+<i class="fa-regular fa-calendar"></i>
+${formatDate(
+post.date ||
+post.createdAt
+)}
+`;
+
+
+const oldViews =
+Number(
+post.views || 0
+);
+
+const newViews =
+oldViews + 1;
+
+
+document.getElementById(
+"articleViews"
+).innerHTML =
+
+`
+<i class="fa-regular fa-eye"></i>
+${newViews} views
+`;
+
+
+document.getElementById(
+"articleImage"
+).src =
+post.image ||
+"https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=1200&q=80";
+
+
+/*
+==================================================
+IMPORTANT FIX
+
+Do NOT use:
+
+articleContent.innerHTML =
+buildArticleContent(post)
+
+because dynamic ad scripts can disappear.
+
+Instead append the actual DOM.
+==================================================
+*/
+
+const articleContent =
+document.getElementById(
+"articleContent"
+);
+
+
+articleContent.innerHTML =
+"";
+
+
+const articleDOM =
+buildArticleContent(post);
+
+
+articleContent.appendChild(
+articleDOM
+);
+
+
+/*
+YouTube
+*/
+
+const youtubeBox =
+document.getElementById(
+"articleYoutube"
+);
+
+
+if(post.youtubeId){
+
+youtubeBox.style.display =
+"block";
+
+
+document.getElementById(
+"youtubeFrame"
+).src =
+
+"https://www.youtube.com/embed/" +
+encodeURIComponent(
+post.youtubeId
+);
+
+}else{
+
+youtubeBox.style.display =
+"none";
+
+
+document.getElementById(
+"youtubeFrame"
+).src =
+"";
+
+}
+
+
+/*
+Related
+*/
+
+renderRelated(post);
+
+
+/*
+Open article
+*/
+
+document.getElementById(
+"articleModal"
+).classList.add(
+"show"
+);
+
+
+document.body.style.overflow =
+"hidden";
+
+
+/*
+Article URL
+*/
+
+history.replaceState(
+null,
+"",
+location.pathname +
+"#news-" +
+encodeURIComponent(
+post.id
+)
+);
+
+
+/*
+Update views
+*/
+
+try{
+
+await updateDoc(
+doc(
+db,
+"news",
+post.id
+),
+{
+views:
+increment(1)
+}
+);
+
+post.views =
+newViews;
+
+}catch(error){
+
+console.warn(
+"View update failed:",
+error
+);
+
+}
+
+}
+
+
+/* =================================================
+RELATED
+================================================= */
+
+function renderRelated(post){
+
+const grid =
+document.getElementById(
+"relatedGrid"
+);
+
+
+const related =
+allNews
+.filter(
+item =>
+item.id !== post.id &&
+(
+item.category === post.category ||
+item.celebrity === post.celebrity
+)
+)
+.slice(0,6);
+
+
+if(!related.length){
+
+grid.innerHTML =
+`
+<div class="empty">
+Related news छैन।
+</div>
+`;
+
+return;
+
+}
+
+
+grid.innerHTML =
+related.map(
+item=>{
+
+const image =
+item.image ||
+"https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=700&q=80";
+
+
+return `
+
+<div
+class="related-card"
+onclick="openPostById('${item.id}')">
+
+<img
+src="${escapeHTML(image)}"
+alt=""
+loading="lazy">
+
+<h4>
+
+${escapeHTML(
+item.title || ""
+)}
+
+</h4>
+
+</div>
+
+`;
+
+}
+).join("");
+
+}
+
+
+/* =================================================
+CLOSE ARTICLE
+================================================= */
+
+window.closeArticle =
+function(){
+
+document.getElementById(
+"articleModal"
+).classList.remove(
+"show"
+);
+
+
+document.body.style.overflow =
+"";
+
+
+currentPost =
+null;
+
+
+history.replaceState(
+null,
+"",
+location.pathname
+);
+
+};
+
+
+/* =================================================
+HERO OPEN
+================================================= */
+
+window.openHero =
+function(){
+
+if(heroPost){
+
+openPost(
+heroPost
+);
+
+}
+
+};
+
+
+/* =================================================
+SIDE OPEN
+================================================= */
+
+window.openSide =
+function(index){
+
+if(
+sidePosts[index]
+){
+
+openPost(
+sidePosts[index]
+);
+
+}
+
+};
+
+
+/* =================================================
+ARTICLE URL
+================================================= */
+
+function articleURL(){
+
+if(!currentPost){
+
+return location.href;
+
+}
+
+
+return location.origin +
+location.pathname +
+"#news-" +
+encodeURIComponent(
+currentPost.id
+);
+
+}
+
+
+/* =================================================
+WHATSAPP
+================================================= */
+
+window.shareWhatsApp =
+function(){
+
+if(!currentPost){
+return;
+}
+
+
+const text =
+currentPost.title +
+"\n\n" +
+articleURL();
+
+
+window.open(
+"https://wa.me/?text=" +
+encodeURIComponent(text),
+"_blank"
+);
+
+};
+
+
+/* =================================================
+FACEBOOK
+================================================= */
+
+window.shareFacebook =
+function(){
+
+window.open(
+"https://www.facebook.com/sharer/sharer.php?u=" +
+encodeURIComponent(
+articleURL()
+),
+"_blank"
+);
+
+};
+
+
+/* =================================================
+TELEGRAM
+================================================= */
+
+window.shareTelegram =
+function(){
+
+if(!currentPost){
+return;
+}
+
+
+const url =
+"https://t.me/share/url?url=" +
+encodeURIComponent(
+articleURL()
+) +
+"&text=" +
+encodeURIComponent(
+currentPost.title || ""
+);
+
+
+window.open(
+url,
+"_blank"
+);
+
+};
+
+
+/* =================================================
+COPY
+================================================= */
+
+window.copyArticleLink =
+async function(){
+
+try{
+
+await navigator.clipboard.writeText(
+articleURL()
+);
+
+alert(
+"Article link copied."
+);
+
+}catch(error){
+
+prompt(
+"Copy this link:",
+articleURL()
+);
+
+}
+
+};
+
+
+/* =================================================
+NATIVE SHARE
+================================================= */
+
+window.nativeShare =
+async function(){
+
+if(!currentPost){
+return;
+}
+
+
+if(
+navigator.share
+){
+
+try{
+
+await navigator.share({
+
+title:
+currentPost.title ||
+"StarPulse",
+
+text:
+currentPost.excerpt ||
+currentPost.title ||
+"",
+
+url:
+articleURL()
+
+});
+
+}catch(error){}
+
+}else{
+
+copyArticleLink();
+
+}
+
+};
+
+
+/* =================================================
+DRAWER
+================================================= */
+
+window.toggleDrawer =
+function(force){
+
+const drawer =
+document.getElementById(
+"drawer"
+);
+
+const backdrop =
+document.getElementById(
+"backdrop"
+);
+
+
+if(force === false){
+
+drawer.classList.remove(
+"open"
+);
+
+backdrop.classList.remove(
+"show"
+);
+
+return;
+
+}
+
+
+drawer.classList.toggle(
+"open"
+);
+
+backdrop.classList.toggle(
+"show"
+);
+
+};
+
+
+/* =================================================
+GO HOME
+================================================= */
+
+window.goHome =
+function(){
+
+toggleDrawer(false);
+
+renderHome();
+
+window.scrollTo({
+
+top:0,
+
+behavior:"smooth"
+
+});
+
+};
+
+
+/* =================================================
+HASH ARTICLE
+================================================= */
+
+function openHashArticle(){
+
+const hash =
+location.hash;
+
+
+if(
+!hash.startsWith(
+"#news-"
+)
+){
+
+return;
+
+}
+
+
+const id =
+decodeURIComponent(
+hash.replace(
+"#news-",
+""
+)
+);
+
+
+const post =
+allNews.find(
+item =>
+item.id === id
+);
+
+
+if(post){
+
+setTimeout(
+()=>{
+openPost(post);
+},
+300
+);
+
+}
+
+}
+
+
+/* =================================================
+ESC KEY
+================================================= */
+
+document.addEventListener(
+"keydown",
+event=>{
+
+if(
+event.key === "Escape" &&
+document
+.getElementById(
+"articleModal"
+)
+.classList.contains(
+"show"
+)
+){
+
+closeArticle();
+
+}
+
+});
+
+
+/* =================================================
+START
+================================================= */
+
+loadNews();
+
+</script>
+
+</body>
+</html>
