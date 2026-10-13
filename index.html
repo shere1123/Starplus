@@ -1,180 +1,558 @@
 <!DOCTYPE html>
-<html lang="ne">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<meta name="theme-color" content="#07111f">
-<meta name="description" content="Daily Selibreti — Movies, World History, Health Tips, Political News and Celebrity Lifestyle.">
-<meta property="og:site_name" content="Daily Selibreti">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Daily Selibreti — News & Entertainment">
-<meta property="og:description" content="Movies, World History, Health Tips, Political News and Celebrity Lifestyle.">
-<meta property="og:url" content="https://YOUR-DOMAIN.com/">
-<meta property="og:image" content="https://YOUR-DOMAIN.com/your-share-image.jpg">
-<meta name="twitter:card" content="summary_large_image">
-<title>Daily Selibreti — News & Entertainment</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Mukta:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Daily Selibreti Admin</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-:root{--dark:#07111f;--dark2:#173c64;--red:#e91e63;--red2:#ff3d70;--bg:#f3f5f8;--white:#fff;--text:#18212c;--muted:#727c88;--border:#e3e7ec}
-html{scroll-behavior:smooth;scroll-padding-top:120px}
-body{background:var(--bg);color:var(--text);font-family:Inter,Mukta,sans-serif;font-size:15px;font-weight:500;overflow-x:hidden;line-height:1.7;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
-body:lang(ne),body.ne{font-family:Mukta,Inter,sans-serif}
-button,input,textarea,select{font-family:Inter,Mukta,sans-serif}button{cursor:pointer}img{max-width:100%;display:block}a{text-decoration:none;color:inherit}h1,h2,h3,h4,strong,b,.logo,.news-title,.category-card strong{font-weight:800}p,li,a,span{overflow-wrap:anywhere}
-.header{position:sticky;top:0;z-index:500;background:linear-gradient(135deg,#07111f,#173c64);color:white;box-shadow:0 4px 20px #0002}
-.header-main{max-width:1180px;margin:auto;min-height:74px;padding:11px 16px;display:flex;align-items:center;gap:13px}.menu-btn{width:42px;height:42px;border:0;border-radius:11px;background:#ffffff1a;color:white;font-size:18px;flex-shrink:0}.logo{font-size:23px;white-space:nowrap;letter-spacing:-.6px}.logo span{color:#ff3d70}.logo small{display:block;font-size:9px;font-weight:600;letter-spacing:2px;color:#c6d2e1;margin-top:1px}
-.search{margin-left:auto;width:330px;height:42px;background:white;color:#7b8490;border-radius:12px;display:flex;align-items:center;padding:0 12px}.search input{width:100%;border:0;outline:0;padding-left:9px;font-size:13px;color:#18212c}
-.main-nav{border-top:1px solid #ffffff14}.main-nav-inner{max-width:1180px;margin:auto;display:flex;overflow-x:auto;scrollbar-width:none}.main-nav-inner::-webkit-scrollbar{display:none}.main-nav a{padding:13px 14px;color:#dbe4ed;font-size:12px;font-weight:800;white-space:nowrap}.main-nav a:hover,.main-nav a.active{background:#ffffff17;color:white}
-.drawer{position:fixed;top:0;left:-300px;width:285px;height:100dvh;z-index:1000;background:#081321;color:white;padding:18px 14px;transition:.25s;overflow-y:auto}.drawer.open{left:0}.drawer-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:24px}.drawer-logo{font-size:21px;font-weight:800}.drawer-logo span{color:var(--red2)}.drawer-close{width:38px;height:38px;border:0;border-radius:10px;background:#18263a;color:white}.drawer a{display:flex;align-items:center;gap:13px;padding:13px 12px;border-radius:10px;color:#dce4ed;font-size:13px;margin-bottom:4px}.drawer a:hover{background:#17263a}.drawer a i{width:18px;color:#ff5c88}.backdrop{position:fixed;inset:0;z-index:900;background:#0009;display:none}.backdrop.show{display:block}
-.ticker{background:#111827;color:white;overflow:hidden}.ticker-inner{max-width:1180px;margin:auto;min-height:38px;display:flex;align-items:center}.ticker-label{height:38px;background:var(--red);padding:0 14px;display:flex;align-items:center;font-size:10px;font-weight:800;white-space:nowrap}.ticker-track{padding-left:18px;font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.container{width:min(1180px,calc(100% - 30px));margin:auto}.ad-box{width:100%;min-height:105px;margin:10px auto;display:flex;flex-direction:column;align-items:center;justify-content:center;overflow:hidden}.ad-label,.article-ad-label{font-size:8px;color:#999;letter-spacing:1px;margin-bottom:5px}.ad-desktop{width:728px;height:90px;max-width:100%;display:flex;justify-content:center;align-items:center;overflow:hidden}.ad-mobile{width:320px;height:50px;max-width:100%;display:none;justify-content:center;align-items:center;overflow:hidden}
-.hero{display:grid;grid-template-columns:1.6fr 1fr;gap:18px;margin-top:18px}.hero-main{position:relative;height:430px;overflow:hidden;border-radius:17px;background:#111;cursor:pointer}.hero-main img{width:100%;height:100%;object-fit:cover;transition:.35s}.hero-main:hover img{transform:scale(1.025)}.hero-overlay{position:absolute;inset:0;background:linear-gradient(to top,#000e,#0000 72%)}.hero-content{position:absolute;left:0;right:0;bottom:0;padding:27px;color:white}.badge{display:inline-block;padding:5px 9px;border-radius:5px;background:var(--red);font-size:9px;font-weight:800;margin-bottom:9px}.hero-content h1{font-size:30px;line-height:1.4;margin-bottom:10px}.hero-meta{font-size:11px;color:#d9dfe6}.hero-side{display:grid;grid-template-rows:1fr 1fr;gap:18px}.side-card{position:relative;overflow:hidden;border-radius:17px;background:#111;cursor:pointer;min-height:200px}.side-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}.side-card:after{content:"";position:absolute;inset:0;background:linear-gradient(to top,#000e,transparent 70%)}.side-content{position:absolute;z-index:2;left:17px;right:17px;bottom:15px;color:white}.side-content h3{font-size:16px;line-height:1.4}
-.section{margin-top:36px}.section-head{display:flex;align-items:center;justify-content:space-between;padding-bottom:10px;margin-bottom:15px;border-bottom:1px solid var(--border)}.section-head h2{font-size:20px}.section-head a{font-size:11px;font-weight:800;color:var(--red)}.content-grid{display:grid;grid-template-columns:minmax(0,2fr) minmax(260px,1fr);gap:24px}.news-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.news-card{background:white;border:1px solid var(--border);border-radius:13px;overflow:hidden;cursor:pointer;transition:.2s}.news-card:hover{transform:translateY(-2px);box-shadow:0 8px 25px #00000012}.news-card img{width:100%;height:205px;object-fit:cover;background:#e5e7eb}.news-info{padding:14px}.news-category{font-size:9px;font-weight:800;color:var(--red);margin-bottom:7px;text-transform:uppercase}.news-title{font-size:16px;line-height:1.65}.news-excerpt{font-size:13px;color:#586270;line-height:1.85;margin-top:8px}.news-meta{margin-top:9px;font-size:10px;color:var(--muted);display:flex;gap:8px;flex-wrap:wrap}
-.sidebar-box{background:white;border:1px solid var(--border);border-radius:13px;padding:16px;margin-bottom:17px}.sidebar-box h3{font-size:16px;padding-bottom:10px;margin-bottom:3px;border-bottom:2px solid var(--red)}.popular-item{display:grid;grid-template-columns:85px 1fr;gap:10px;padding:11px 0;border-bottom:1px solid var(--border);cursor:pointer}.popular-item:last-child{border-bottom:0}.popular-item img{width:85px;height:62px;object-fit:cover;border-radius:7px}.popular-item h4{font-size:13px;line-height:1.6}.popular-item span{font-size:9px;color:var(--muted);display:block;margin-top:4px}.sidebar-cats a{display:block;padding:10px 2px;border-bottom:1px solid var(--border);font-size:12px}.sidebar-cats a:last-child{border:0}.sidebar-cats a:hover{color:var(--red)}
-.category-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:13px}.category-card{background:white;border:1px solid var(--border);border-radius:13px;padding:17px;min-height:105px;display:flex;flex-direction:column;justify-content:center;cursor:pointer;transition:.2s}.category-card:hover{border-color:var(--red);transform:translateY(-2px)}.category-card i{font-size:21px;color:var(--red);margin-bottom:9px}.category-card strong{font-size:14px;line-height:1.6}.category-card small{font-size:10px;color:var(--muted);margin-top:4px}.loading,.empty{padding:35px 12px;text-align:center;color:var(--muted);background:white;border-radius:12px;font-size:13px}.empty{border:1px solid var(--border)}
-.article-modal{position:fixed;inset:0;z-index:2000;background:#edf0f3;display:none;overflow-y:auto}.article-modal.show{display:block}.article-close{position:fixed;right:17px;top:14px;z-index:2050;width:44px;height:44px;border:0;border-radius:50%;background:#07111f;color:white;font-size:18px;box-shadow:0 5px 20px #0003}.article-sheet{width:min(920px,calc(100% - 30px));margin:35px auto 50px;background:white;border-radius:17px;overflow:hidden}.article-head{padding:35px 42px 24px}.article-category{font-size:10px;font-weight:800;color:var(--red);margin-bottom:10px;text-transform:uppercase}.article-head h1{font-size:38px;line-height:1.5;margin-bottom:16px}.article-meta{display:flex;flex-wrap:wrap;gap:13px;font-size:11px;color:var(--muted)}.article-image{width:100%;max-height:560px;object-fit:cover;background:#e5e7eb}.article-body{padding:28px 42px 45px}.key-points{padding:18px 20px;margin-bottom:25px;background:#fff5f8;border-left:4px solid var(--red);border-radius:8px}.key-points h3{font-size:16px;margin-bottom:10px}.key-points ul{padding-left:20px}.key-points li{font-size:15px;font-weight:600;line-height:1.9;margin:6px 0}.article-generated-content p{font-family:Inter,Mukta,sans-serif;font-size:19px;font-weight:500;line-height:2;letter-spacing:0;color:#252c34;margin:0 0 24px;overflow-wrap:anywhere;word-break:normal}
-.article-inline-ad{width:100%;min-height:110px;margin:27px auto;padding:10px 0;background:#fafafa;border-top:1px solid #eee;border-bottom:1px solid #eee;display:flex;flex-direction:column;align-items:center;justify-content:center;overflow:hidden;clear:both}.article-ad-320{width:320px;height:50px;max-width:100%;display:flex;align-items:center;justify-content:center;overflow:hidden}.article-ad-728{width:728px;height:90px;max-width:100%;display:flex;align-items:center;justify-content:center;overflow:hidden}.article-youtube{margin-top:30px}.article-youtube h3{font-size:17px;margin-bottom:12px}.youtube-frame{position:relative;width:100%;padding-top:56.25%;background:#111;border-radius:12px;overflow:hidden}.youtube-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
-.share-box{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px;padding-top:20px;border-top:1px solid var(--border)}.share-box strong{width:100%;font-size:15px;margin-bottom:5px}.share-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:9px;padding:11px 15px;color:white;font-size:12px;font-weight:700;transition:transform .2s,opacity .2s}.share-btn:hover{opacity:.9;transform:translateY(-2px)}.share-btn i{font-size:16px}.share-whatsapp{background:#25D366}.share-facebook{background:#1877F2}.share-telegram{background:#229ED9}.share-messenger{background:#0866FF}.share-copy{background:#273548}.share-native{background:#e91e63}.related{margin-top:35px;padding-top:20px;border-top:1px solid var(--border)}.related h3{font-size:18px;margin-bottom:13px}.related-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.related-card{border:1px solid var(--border);border-radius:9px;overflow:hidden;cursor:pointer}.related-card img{width:100%;height:100px;object-fit:cover}.related-card h4{padding:9px;font-size:11px;line-height:1.5}
-.footer{margin-top:55px;padding:40px 0 25px;background:#07111f;color:#d6dde6}.footer-grid{max-width:1180px;margin:auto;padding:0 17px;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:28px}.footer h3{font-size:16px;color:white;margin-bottom:12px}.footer p,.footer a{font-size:11px;line-height:1.9;color:#9ca9b9}.footer a{display:block}.footer-bottom{max-width:1180px;margin:28px auto 0;padding:17px;border-top:1px solid #ffffff14;text-align:center;font-size:10px;color:#7d8998}
-@media(max-width:900px){.hero{grid-template-columns:1fr}.hero-side{grid-template-columns:1fr 1fr;grid-template-rows:none}.content-grid{grid-template-columns:1fr}.category-grid{grid-template-columns:repeat(2,1fr)}.footer-grid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:767px){.header-main{min-height:62px;padding:9px 11px;gap:9px}.logo{font-size:18px}.logo small{font-size:7px}.menu-btn{width:37px;height:37px}.search{height:37px;width:auto;flex:1}.ad-desktop{display:none}.ad-mobile{display:flex}.ad-box{min-height:65px;margin:7px auto}.hero-main{height:300px}.hero-content{padding:19px}.hero-content h1{font-size:22px}.side-card{min-height:165px}.side-content{left:12px;right:12px;bottom:12px}.side-content h3{font-size:13px}.news-grid{grid-template-columns:1fr 1fr;gap:9px}.news-card img{height:140px}.news-info{padding:10px}.news-title{font-size:14px;line-height:1.65}.news-excerpt{display:none}.news-meta{font-size:8px}.category-grid{grid-template-columns:1fr 1fr;gap:9px}.category-card{min-height:90px;padding:13px}.article-sheet{width:100%;min-height:100vh;margin:0;border-radius:0}.article-head{padding:70px 18px 20px}.article-head h1{font-size:28px;line-height:1.55}.article-body{padding:22px 18px 40px}.article-generated-content p{font-size:18px;line-height:2}.article-inline-ad{margin:23px auto;min-height:72px}.article-ad-728{width:100%;height:90px}.article-ad-320{width:320px;max-width:100%;height:50px}.related-grid{grid-template-columns:1fr 1fr}.footer-grid{grid-template-columns:1fr}.share-btn{flex:1 1 calc(50% - 10px);padding:12px 8px}}
-@media(max-width:380px){.logo{font-size:16px}.hero-content h1{font-size:19px}.news-title{font-size:13px;line-height:1.6}.article-generated-content p{font-size:17px;line-height:1.95}}
-
-.policy-toolbar{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin:0 0 15px;padding:12px 16px;background:#fff;border:1px solid #e3e7ec;border-radius:12px;font-size:11px;font-weight:800;color:#727c88;letter-spacing:.5px}
-.policy-home{display:inline-flex;align-items:center;gap:8px;color:#e91e63;font-size:13px;letter-spacing:0}
-#policyContent .paper{background:#fff;border:1px solid #e3e7ec;border-radius:15px;padding:clamp(20px,5vw,42px);box-shadow:0 6px 24px #00000008;line-height:1.8}
-#policyContent .paper h1{font-size:clamp(27px,5vw,38px);line-height:1.35;margin:7px 0 12px;font-weight:800;color:#18212c}
-#policyContent .paper h2{font-size:21px;margin:27px 0 8px;line-height:1.45;color:#18212c}
-#policyContent .paper p,#policyContent .paper li{margin:10px 0;color:#3d4652;overflow-wrap:anywhere}
-#policyContent .paper ul{padding-left:24px}
-#policyContent .updated{font-size:12px;color:#727c88;margin-bottom:24px}
-#policyContent .note{padding:13px 16px;background:#fff5f8;border-left:4px solid #e91e63;border-radius:8px;margin:18px 0}
-#policyContent a{color:#e91e63;text-decoration:underline}
-.policy-page-links{display:flex;flex-wrap:wrap;gap:9px;margin-top:15px;padding:16px;background:#fff;border:1px solid #e3e7ec;border-radius:12px}
-.policy-page-links a{font-size:12px;font-weight:700;color:#173c64;padding:7px 9px;border-radius:7px;background:#f3f5f8}
-body.policy-mode .ticker,body.policy-mode .ad-box,body.policy-mode main.container{display:none!important}
-body.policy-mode #policyView{display:block!important}
-@media(max-width:600px){.policy-toolbar{align-items:flex-start;flex-direction:column}#policyContent .paper{border-radius:12px}}
-
+*{box-sizing:border-box}
+body{margin:0;background:#f3f5f9;color:#172033;font:14px Inter,Arial,sans-serif}
+button,input,textarea,select{font:inherit}
+button{border:0;border-radius:8px;padding:11px 14px;cursor:pointer;font-weight:700}
+.primary{background:#e91e63;color:#fff}
+.soft{background:#edf0f5;color:#243047}
+.danger{background:#ffe7eb;color:#b4233c}
+.hidden{display:none!important}
+.muted{color:#758197}
+.wrap{max-width:1100px;margin:auto;padding:18px}
+.card{background:white;border:1px solid #e2e7ef;border-radius:14px;padding:18px;margin-bottom:16px}
+h1,h2,h3{margin-top:0}
+input,textarea,select{width:100%;padding:11px;border:1px solid #dce2ea;border-radius:8px;background:white}
+textarea{min-height:110px;resize:vertical}
+label{display:block;font-weight:700;margin:13px 0 6px}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.actions{display:flex;gap:7px;flex-wrap:wrap}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.stat{background:#fff;padding:16px;border:1px solid #e2e7ef;border-radius:12px}
+.stat strong{display:block;font-size:25px;margin-top:8px}
+nav{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+nav button{background:#14243b;color:white}
+nav button.active{background:#e91e63}
+table{width:100%;border-collapse:collapse;min-width:700px}
+th,td{text-align:left;padding:12px;border-bottom:1px solid #edf0f4}
+.tablebox{overflow:auto}
+.status{padding:12px;background:#e8f7ed;color:#176b3a;border-radius:8px;margin:10px 0;white-space:pre-wrap}
+.error{background:#fff0f1;color:#a41e34}
+.thumb{width:60px;height:45px;object-fit:cover;border-radius:6px}
+@media(max-width:650px){
+ .row,.stats{grid-template-columns:1fr 1fr}
+ .wrap{padding:10px}
+ .card{padding:13px}
+}
 </style>
 </head>
 <body>
-<header class="header"><div class="header-main">
-<button class="menu-btn" onclick="toggleDrawer()" aria-label="Open menu"><i class="fa-solid fa-bars"></i></button>
-<a class="logo" href="#" onclick="goHome();return false">Daily<span>Selibreti</span><small>NEWS • MOVIES • LIFESTYLE</small></a>
-<div class="search"><i class="fa-solid fa-magnifying-glass"></i><input id="searchInput" type="search" placeholder="समाचार खोज्नुहोस्..." oninput="searchNews(this.value)"></div>
-</div><nav class="main-nav"><div class="main-nav-inner">
-<a href="#" class="active" onclick="filterCategory('All',event)">LATEST</a><a href="#" onclick="filterCategory('Hindi Movies',event)">HINDI MOVIES</a><a href="#" onclick="filterCategory('Hollywood Movies',event)">HOLLYWOOD MOVIES</a><a href="#" onclick="filterCategory('Nepali Movies',event)">NEPALI MOVIES</a><a href="#" onclick="filterCategory('World History',event)">WORLD HISTORY</a><a href="#" onclick="filterCategory('Health Tips',event)">HEALTH TIPS</a><a href="#" onclick="filterCategory('Political News',event)">POLITICAL NEWS</a><a href="#" onclick="filterCategory('Celebrity Lifestyle',event)">CELEBRITY LIFESTYLE</a>
-</div></nav></header>
-<div class="drawer" id="drawer"><div class="drawer-head"><div class="drawer-logo">Daily<span>Selibreti</span></div><button class="drawer-close" onclick="toggleDrawer(false)" aria-label="Close menu"><i class="fa-solid fa-xmark"></i></button></div>
-<a href="#" onclick="goHome();return false"><i class="fa-solid fa-house"></i> Home / Latest News</a><a href="#" onclick="filterCategory('Hindi Movies',event)"><i class="fa-solid fa-film"></i> Hindi Movies</a><a href="#" onclick="filterCategory('Hollywood Movies',event)"><i class="fa-solid fa-clapperboard"></i> Hollywood Movies</a><a href="#" onclick="filterCategory('Nepali Movies',event)"><i class="fa-solid fa-star"></i> Nepali Movies</a><a href="#" onclick="filterCategory('World History',event)"><i class="fa-solid fa-earth-asia"></i> World History</a><a href="#" onclick="filterCategory('Health Tips',event)"><i class="fa-solid fa-heart-pulse"></i> Health Tips</a><a href="#" onclick="filterCategory('Political News',event)"><i class="fa-solid fa-landmark"></i> Political News</a><a href="#" onclick="filterCategory('Celebrity Lifestyle',event)"><i class="fa-solid fa-heart"></i> Celebrity Lifestyle</a><a href="#page=about" onclick="return openPolicyLink(event, '#page=about')"><i class="fa-solid fa-circle-info"></i> About Us</a><a href="#page=contact" onclick="return openPolicyLink(event, '#page=contact')"><i class="fa-solid fa-envelope"></i> Contact</a>
-</div><div class="backdrop" id="backdrop" onclick="toggleDrawer(false)"></div>
-<div class="ticker"><div class="ticker-inner"><div class="ticker-label"><i class="fa-solid fa-bolt"></i>&nbsp; BREAKING</div><div class="ticker-track" id="tickerTrack">Daily Selibreti मा ताजा समाचार पढ्नुहोस् • Movies • World History • Health Tips • Political News • Celebrity Lifestyle</div></div></div>
-<div class="container"><div class="ad-box"><div class="ad-label">ADVERTISEMENT</div><div class="ad-desktop" id="topDesktopAd"></div><div class="ad-mobile" id="topMobileAd"></div></div></div>
-<main class="container"><section class="hero">
-<div class="hero-main" onclick="openHero()"><img id="heroImage" src="https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=1200&q=80" alt="Featured story"><div class="hero-overlay"></div><div class="hero-content"><div class="badge" id="heroCategory">FEATURED</div><h1 id="heroTitle">Daily Selibreti — Latest News</h1><div class="hero-meta" id="heroMeta">Latest stories and updates</div></div></div>
-<div class="hero-side"><div class="side-card" onclick="openSide(0)"><img id="sideImage1" src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=800&q=80" alt="Trending story"><div class="side-content"><div class="badge">TRENDING</div><h3 id="sideTitle1">Trending stories</h3></div></div><div class="side-card" onclick="openSide(1)"><img id="sideImage2" src="https://images.unsplash.com/photo-1516280440614-37939bbacd81?auto=format&fit=crop&w=800&q=80" alt="Latest story"><div class="side-content"><div class="badge">LATEST</div><h3 id="sideTitle2">Latest updates</h3></div></div></div>
-</section>
-<section class="section"><div class="section-head"><h2 id="newsHeading"><i class="fa-regular fa-newspaper"></i> Latest News</h2><a href="#" onclick="filterCategory('All',event)">VIEW ALL&nbsp; <i class="fa-solid fa-arrow-right"></i></a></div><div class="content-grid"><div><div id="newsGrid" class="news-grid"><div class="loading"><i class="fa-solid fa-spinner fa-spin"></i><br><br>समाचार लोड हुँदैछ...</div></div></div><aside>
-<div class="sidebar-box"><h3><i class="fa-solid fa-fire"></i> Trending News</h3><div id="popularList"><div class="loading">Loading...</div></div></div>
-<div class="sidebar-box sidebar-cats"><h3>Popular Categories</h3><a href="#" onclick="filterCategory('Hindi Movies',event)">🎬 Hindi Movies</a><a href="#" onclick="filterCategory('Hollywood Movies',event)">🎥 Hollywood Movies</a><a href="#" onclick="filterCategory('Nepali Movies',event)">🇳🇵 Nepali Movies</a><a href="#" onclick="filterCategory('World History',event)">🌍 World History</a><a href="#" onclick="filterCategory('Health Tips',event)">💚 Health Tips</a><a href="#" onclick="filterCategory('Political News',event)">🏛️ Political News</a><a href="#" onclick="filterCategory('Celebrity Lifestyle',event)">⭐ Celebrity Lifestyle</a></div>
-<div class="sidebar-box"><div class="ad-label">ADVERTISEMENT</div><div id="sideAd" style="min-height:250px;display:flex;align-items:center;justify-content:center;overflow:hidden"></div></div>
-</aside></div></section>
-<section class="section"><div class="section-head"><h2>Explore Categories</h2></div><div class="category-grid">
-<div class="category-card" onclick="filterCategory('Hindi Movies')"><i class="fa-solid fa-film"></i><strong>Hindi Movies</strong><small>Bollywood films and stars</small></div><div class="category-card" onclick="filterCategory('Hollywood Movies')"><i class="fa-solid fa-clapperboard"></i><strong>Hollywood Movies</strong><small>Global cinema and actors</small></div><div class="category-card" onclick="filterCategory('Nepali Movies')"><i class="fa-solid fa-star"></i><strong>Nepali Movies</strong><small>Nepali cinema updates</small></div><div class="category-card" onclick="filterCategory('World History')"><i class="fa-solid fa-earth-asia"></i><strong>World History</strong><small>People, places and events</small></div><div class="category-card" onclick="filterCategory('Health Tips')"><i class="fa-solid fa-heart-pulse"></i><strong>Health Tips</strong><small>General wellness information</small></div><div class="category-card" onclick="filterCategory('Political News')"><i class="fa-solid fa-landmark"></i><strong>Political News</strong><small>Politics and public affairs</small></div><div class="category-card" onclick="filterCategory('Celebrity Lifestyle')"><i class="fa-solid fa-heart"></i><strong>Celebrity Lifestyle</strong><small>Fashion and lifestyle</small></div>
-</div></section></main>
 
-<section id="policyView" class="container" style="display:none;max-width:960px;margin:28px auto 45px;">
-  <div class="policy-toolbar"><a href="#" onclick="return showHome(event)" class="policy-home"><i class="fa-solid fa-arrow-left"></i> Back to Home</a><span>DAILY SELIBRETI · INFORMATION</span></div>
-  <div id="policyContent"></div>
-  <nav class="policy-page-links" aria-label="Information pages">
-    <a href="#page=about" onclick="return openPolicyLink(event,'#page=about')">About Us</a>
-    <a href="#page=contact" onclick="return openPolicyLink(event,'#page=contact')">Contact</a>
-    <a href="#page=privacy-policy" onclick="return openPolicyLink(event,'#page=privacy-policy')">Privacy Policy</a>
-    <a href="#page=terms" onclick="return openPolicyLink(event,'#page=terms')">Terms</a>
-    <a href="#page=disclaimer" onclick="return openPolicyLink(event,'#page=disclaimer')">Disclaimer</a>
-    <a href="#page=cookie-policy" onclick="return openPolicyLink(event,'#page=cookie-policy')">Cookie Policy</a>
-    <a href="#page=editorial-policy" onclick="return openPolicyLink(event,'#page=editorial-policy')">Editorial Policy</a>
-  </nav>
-</section>
-<template id="template-about"><article class="paper"><h1>About Us</h1><div class="updated">Last updated: October 14, 2026</div><p>Welcome to <strong>Daily Selibreti</strong>, a digital publication covering entertainment, cinema, celebrity lifestyle, world history, general health information, and public affairs.</p><p>Our goal is to help readers discover timely, useful, and understandable stories. We aim to present information clearly, distinguish reporting from opinion, and correct material errors when they are brought to our attention.</p><h2>What We Cover</h2><ul><li>Hindi, Hollywood, and Nepali movies</li><li>Celebrity news, fashion, and lifestyle</li><li>World history, people, places, and events</li><li>General wellness and health information</li><li>Political news and public affairs</li></ul><h2>Our Approach</h2><p>We work to publish original writing, add context to the stories we cover, and respect copyright. Some articles may refer to public announcements, interviews, or other sources; where practical, we identify relevant sources in the article.</p><div class="note"><strong>Editorial independence:</strong> Advertising and sponsorship, where used, should be clearly identified and should not be presented as independent editorial reporting.</div><h2>Contact</h2><p>For corrections, suggestions, or general enquiries, visit our <a href="#page=contact">Contact page</a>.</p></article></template>
-<template id="template-contact"><article class="paper"><h1>Contact Us</h1><div class="updated">Last updated: October 14, 2026</div><p>We welcome feedback, correction requests, news tips, and advertising enquiries about Daily Selibreti.</p><h2>Email</h2><div class="contact-card"><i class="fa-solid fa-envelope"></i> <a href="mailto:harishbist576@gmail.com">harishbist576@gmail.com</a></div><h2>When contacting us</h2><ul><li>Include the article URL if your message concerns a particular story.</li><li>For corrections, explain which statement needs review and provide a reliable source where possible.</li><li>For copyright concerns, identify the material and provide enough information for us to locate it.</li><li>Do not email passwords, payment card details, or other sensitive personal information.</li></ul><p>We will review messages as reasonably practicable, but a response time cannot be guaranteed.</p></article></template>
-<template id="template-privacy-policy"><article class="paper"><h1>Privacy Policy</h1><div class="updated">Last updated: October 14, 2026</div><p>This Privacy Policy explains how Daily Selibreti (“we,” “our,” or “the website”) may collect, use, and disclose information when you visit our website.</p><h2>Information We May Collect</h2><p>We may receive information you choose to send us, such as your email address and the contents of a message when you contact us. Our website and service providers may also process technical information such as browser type, device information, approximate location derived from an IP address, pages visited, and basic log data.</p><h2>Cookies and Similar Technologies</h2><p>Cookies and similar technologies may be used to operate the website, remember preferences, measure traffic, prevent abuse, and support advertising. You can manage or delete cookies through your browser settings. Disabling some cookies may affect website functionality.</p><h2>Google AdSense and Third-Party Advertising</h2><p>We may use Google AdSense or other advertising partners to display advertisements. Third-party vendors, including Google, may use cookies, web beacons, IP addresses, or similar technologies to collect information as a result of ad serving on this website. This information may be used to provide, limit, measure, and personalize advertising, subject to applicable settings, policies, and consent requirements.</p><p>Learn more about <a href="https://policies.google.com/technologies/partner-sites" rel="noopener" target="_blank">how Google uses information from sites or apps that use its services</a>. You can review Google’s <a href="https://policies.google.com/privacy" rel="noopener" target="_blank">Privacy Policy</a> and available advertising controls.</p><h2>How We Use Information</h2><ul><li>To operate, secure, and maintain the website.</li><li>To respond to messages and correction requests.</li><li>To understand general website usage and improve content.</li><li>To support advertising, detect invalid activity, and meet legal obligations.</li></ul><h2>Sharing of Information</h2><p>We do not sell the personal information you directly send us as a contact message. Information may be processed by hosting, analytics, advertising, security, or other service providers that help operate the website, or disclosed where required by law.</p><h2>Data Retention and Security</h2><p>We keep messages and technical records only as long as reasonably needed for their purpose, security, legal obligations, or dispute resolution. We use reasonable measures to protect information, but no internet transmission or storage method can be guaranteed completely secure.</p><h2>Children’s Privacy</h2><p>This website is intended for a general audience and is not designed to knowingly collect personal information from children in violation of applicable law. If you believe a child has sent us personal information, contact us so we can review the request.</p><h2>Your Choices and Rights</h2><p>Depending on your location, you may have rights to access, correct, delete, or object to certain processing of your personal information. You can also manage browser cookies and available advertising preferences. Contact us to make a privacy request.</p><h2>Changes and Contact</h2><p>We may update this policy as our services or legal requirements change. Updates will be posted on this page with a revised date. Questions can be sent to <a href="mailto:harishbist576@gmail.com">harishbist576@gmail.com</a>.</p><div class="note">Please customize this policy to match the services, analytics tools, ad partners, and data practices actually used on your site. This template is not legal advice.</div></article></template>
-<template id="template-terms"><article class="paper"><h1>Terms &amp; Conditions</h1><div class="updated">Last updated: October 14, 2026</div><p>By accessing Daily Selibreti, you agree to these Terms &amp; Conditions. If you do not agree, please discontinue use of the website.</p><h2>Website Content</h2><p>Content is provided for general informational and entertainment purposes. We may update, change, or remove material at any time. We do not guarantee that every item is complete, current, or error-free.</p><h2>Permitted Use</h2><p>You may browse and share links to our pages for lawful personal use. You must not misuse the website, attempt unauthorized access, disrupt its operation, or use content in a way that violates applicable law or another person’s rights.</p><h2>Intellectual Property</h2><p>Unless otherwise indicated, original text, branding, and website design elements belong to their respective owners. Third-party names, trademarks, images, and media remain the property of their respective owners. Do not reproduce substantial material without permission or a valid legal basis.</p><h2>Third-Party Links and Advertising</h2><p>The website may contain links to third-party websites or advertisements. We do not control and are not responsible for their content, availability, privacy practices, or services. Visiting third-party sites is at your own discretion.</p><h2>No Professional Advice</h2><p>Health-related content is general information and is not a substitute for advice from a qualified healthcare professional. Political and historical content should be assessed with reference to reliable sources.</p><h2>Disclaimer of Warranties and Liability</h2><p>To the extent permitted by applicable law, the website is provided on an “as is” and “as available” basis. We are not responsible for losses arising from reliance on website content or third-party services, except where liability cannot lawfully be excluded.</p><h2>Changes and Contact</h2><p>We may revise these terms by publishing an updated version on this page. Questions: <a href="mailto:harishbist576@gmail.com">harishbist576@gmail.com</a>.</p></article></template>
-<template id="template-disclaimer"><article class="paper"><h1>Disclaimer</h1><div class="updated">Last updated: October 14, 2026</div><p>The information on Daily Selibreti is provided in good faith for general information, news, entertainment, and educational purposes.</p><h2>Accuracy of Information</h2><p>We aim to publish useful and accurate content, but we make no guarantee that all information is complete, current, or free from error. News and public information can change after publication. Readers should verify important details with authoritative sources.</p><h2>Health Information</h2><p>Health and wellness articles are for general educational purposes only. They do not provide medical diagnosis or treatment and should not replace advice from a qualified health professional. Seek professional care for individual medical concerns.</p><h2>Opinions and Public Affairs</h2><p>Opinions, commentary, and interpretation should not be treated as official statements or professional advice. We aim to distinguish opinion from reported fact where appropriate.</p><h2>External Links</h2><p>Links to other websites are provided for convenience. We do not guarantee or take responsibility for the accuracy, availability, or policies of external websites.</p><h2>Advertising and Affiliate Disclosure</h2><p>This website may display third-party advertisements, including ads served by advertising partners. Advertisements do not necessarily represent an endorsement by Daily Selibreti. Any future affiliate or sponsored relationships should be disclosed clearly where applicable.</p><h2>Corrections</h2><p>If you believe an article contains a material error, contact <a href="mailto:harishbist576@gmail.com">harishbist576@gmail.com</a> and include the article URL and supporting information.</p></article></template>
-<template id="template-cookie-policy"><article class="paper"><h1>Cookie Policy</h1><div class="updated">Last updated: October 14, 2026</div><p>This Cookie Policy explains how Daily Selibreti and service providers may use cookies and similar technologies on this website.</p><h2>What Are Cookies?</h2><p>Cookies are small text files stored by your browser. Similar technologies may include pixels, tags, local storage, or web beacons.</p><h2>Why They May Be Used</h2><ul><li><strong>Essential operation:</strong> to support basic site functions and security.</li><li><strong>Preferences:</strong> to remember choices where such features are implemented.</li><li><strong>Measurement:</strong> to understand visits and improve the website, if analytics tools are enabled.</li><li><strong>Advertising:</strong> advertising partners, including Google where enabled, may use cookies or similar technologies to deliver and measure ads and apply available personalization settings.</li></ul><h2>Managing Cookies</h2><p>You can block or delete cookies through your browser settings. Some features may not work as intended if cookies are disabled. Where consent is legally required, applicable consent choices should be presented before relevant non-essential technologies are used.</p><h2>Third-Party Information</h2><p>Third-party services operate under their own policies. Read <a href="https://policies.google.com/technologies/partner-sites" rel="noopener" target="_blank">Google’s information about partner sites</a> for details about Google services.</p><h2>Contact</h2><p>Questions about this policy can be sent to <a href="mailto:harishbist576@gmail.com">harishbist576@gmail.com</a>.</p><div class="note">Only describe tools and cookies that are actually used on your website. This page alone does not implement a cookie-consent banner.</div></article></template>
-<template id="template-editorial-policy"><article class="paper"><h1>Editorial Policy</h1><div class="updated">Last updated: October 14, 2026</div><p>Daily Selibreti aims to publish understandable, responsible, and useful content across entertainment, movies, celebrity lifestyle, world history, health information, and public affairs.</p><h2>Research and Sources</h2><p>Writers should check relevant facts against reliable sources, especially for health, public affairs, dates, quotations, and claims about identifiable people. When practical, articles should link to or name important sources.</p><h2>Originality and Copyright</h2><p>We aim to publish original writing and add context or commentary when discussing outside material. Images, video, quotations, and other third-party works must be used only when we have permission, a suitable licence, or another valid legal basis.</p><h2>Corrections and Updates</h2><p>We may update articles to correct factual errors, add context, or reflect new information. Readers can report concerns by emailing <a href="mailto:harishbist576@gmail.com">harishbist576@gmail.com</a> and including the article link and supporting evidence.</p><h2>Advertising and Independence</h2><p>Advertising or sponsored content, if published, should be clearly identified. Advertising partners do not automatically determine editorial conclusions.</p><h2>Health and Sensitive Topics</h2><p>Health content is general information, not individualized medical advice. We seek to avoid sensational or misleading claims and encourage readers to consult qualified professionals for personal medical questions.</p></article></template>
+<div class="wrap">
+  <section id="login" class="card" style="max-width:430px;margin:8vh auto">
+    <h1>Daily <span style="color:#e91e63">Selibreti</span></h1>
+    <h2>Admin Login</h2>
+    <p class="muted">Sign in with your approved administrator account.</p>
+    <form id="loginForm">
+      <label>Email</label>
+      <input id="email" type="email" autocomplete="username" required>
+      <label>Password</label>
+      <input id="password" type="password" autocomplete="current-password" required>
+      <button class="primary" style="width:100%;margin-top:14px">Login</button>
+    </form>
+    <div id="loginMsg"></div>
+  </section>
 
-<div class="article-modal" id="articleModal"><button class="article-close" onclick="closeArticle()" aria-label="Close article"><i class="fa-solid fa-xmark"></i></button><article class="article-sheet"><div class="article-head"><div class="article-category" id="articleCategory">NEWS</div><h1 id="articleTitle">News title</h1><div class="article-meta"><span id="articleAuthor"><i class="fa-solid fa-user"></i> Daily Selibreti</span><span id="articleDate"><i class="fa-regular fa-calendar"></i> Date</span><span id="articleViews"><i class="fa-regular fa-eye"></i> 0 views</span></div></div><img id="articleImage" class="article-image" src="" alt="News thumbnail"><div class="article-body"><div id="articleContent"></div>
-<div id="articleYoutube" class="article-youtube" style="display:none"><h3><i class="fa-brands fa-youtube"></i> Related Video</h3><div class="youtube-frame"><iframe id="youtubeFrame" src="" title="Related video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div></div>
-<div class="share-box"><strong><i class="fa-solid fa-share-nodes"></i> Share This News</strong><button class="share-btn share-whatsapp" onclick="shareWhatsApp()"><i class="fa-brands fa-whatsapp"></i> WhatsApp</button><button class="share-btn share-facebook" onclick="shareFacebook()"><i class="fa-brands fa-facebook-f"></i> Facebook</button><button class="share-btn share-telegram" onclick="shareTelegram()"><i class="fa-brands fa-telegram"></i> Telegram</button><button class="share-btn share-messenger" onclick="shareMessenger()"><i class="fa-brands fa-facebook-messenger"></i> Messenger</button><button class="share-btn share-copy" onclick="copyArticleLink()"><i class="fa-solid fa-link"></i> Copy Link</button><button class="share-btn share-native" onclick="nativeShare()"><i class="fa-solid fa-share-nodes"></i> More</button></div>
-<div class="related"><h3>Related Stories</h3><div id="relatedGrid" class="related-grid"></div></div></div></article></div>
-<footer class="footer" id="footer"><div class="footer-grid"><div><h3>Daily<span style="color:#ff3d70">Selibreti</span></h3><p>Daily Selibreti covers Hindi, Hollywood and Nepali movies, world history, health tips, political news and celebrity lifestyle. We aim to publish clear, useful and original stories.</p><p style="margin-top:10px"><i class="fa-solid fa-envelope"></i> harishbist576@gmail.com</p></div><div><h3>Categories</h3><a href="#" onclick="filterCategory('Hindi Movies',event)">Hindi Movies</a><a href="#" onclick="filterCategory('Hollywood Movies',event)">Hollywood Movies</a><a href="#" onclick="filterCategory('Nepali Movies',event)">Nepali Movies</a><a href="#" onclick="filterCategory('World History',event)">World History</a><a href="#" onclick="filterCategory('Health Tips',event)">Health Tips</a><a href="#" onclick="filterCategory('Political News',event)">Political News</a><a href="#" onclick="filterCategory('Celebrity Lifestyle',event)">Celebrity Lifestyle</a></div><div><h3>Information</h3><a href="#page=about" onclick="return openPolicyLink(event, '#page=about')">About Us</a><a href="#page=privacy-policy" onclick="return openPolicyLink(event, '#page=privacy-policy')">Privacy Policy</a><a href="#page=terms" onclick="return openPolicyLink(event, '#page=terms')">Terms &amp; Conditions</a><a href="#page=contact" onclick="return openPolicyLink(event, '#page=contact')">Contact Us</a><a href="#page=disclaimer" onclick="return openPolicyLink(event, '#page=disclaimer')">Disclaimer</a><a href="#page=cookie-policy" onclick="return openPolicyLink(event, '#page=cookie-policy')">Cookie Policy</a><a href="#page=editorial-policy" onclick="return openPolicyLink(event, '#page=editorial-policy')">Editorial Policy</a></div><div><h3>Contact</h3><p>For corrections, news tips, partnership and advertising enquiries, email us.</p><a href="mailto:harishbist576@gmail.com">harishbist576@gmail.com</a></div></div><div class="footer-bottom">© <span id="year"></span> Dailyselibreti.com. All Rights Reserved.</div></footer>
-<script>
-function injectAd(targetId,key,width,height){const target=document.getElementById(targetId);if(!target)return;const frame=document.createElement('div');frame.style.width=width+'px';frame.style.height=height+'px';frame.style.maxWidth='100%';frame.style.display='flex';frame.style.justifyContent='center';frame.style.alignItems='center';frame.style.overflow='hidden';const options=document.createElement('script');options.textContent="atOptions = {'key':'"+key+"','format':'iframe','height':"+height+",'width':"+width+",'params':{}};";const invoke=document.createElement('script');invoke.src='https://www.highrevenueformat.com/'+key+'/invoke.js';frame.append(options,invoke);target.appendChild(frame)}
-if(window.matchMedia('(max-width:767px)').matches)injectAd('topMobileAd','5a52038c2104e86f78b97b96b4eb5fab',320,50);else injectAd('topDesktopAd','1ae7e4561f927e2fe06c78e424dd0ffd',728,90);injectAd('sideAd','1ae7e4561f927e2fe06c78e424dd0ffd',300,250);
-</script>
+  <main id="app" class="hidden">
+    <header class="card">
+      <div class="actions" style="justify-content:space-between;align-items:center">
+        <h2>Daily Selibreti Control Panel</h2>
+        <div class="actions">
+          <button class="soft" onclick="window.open('./index.html','_blank')">View Website</button>
+          <button class="danger" id="logout">Logout</button>
+        </div>
+      </div>
+      <div id="globalMsg"></div>
+    </header>
+
+    <nav>
+      <button class="active" data-tab="dashboard">Dashboard</button>
+      <button data-tab="articles">News / Articles</button>
+      <button data-tab="editor">Add Article</button>
+      <button data-tab="settings">Website & Ads</button>
+    </nav>
+
+    <section id="dashboard" class="tab">
+      <div class="stats">
+        <div class="stat">Total Articles<strong id="total">0</strong></div>
+        <div class="stat">Featured<strong id="featuredCount">0</strong></div>
+        <div class="stat">Total Views<strong id="views">0</strong></div>
+        <div class="stat">Categories<strong id="categories">0</strong></div>
+      </div>
+      <div class="card" style="margin-top:16px">
+        <h3>Recent Articles</h3>
+        <div id="recent">Loading…</div>
+      </div>
+    </section>
+
+    <section id="articles" class="tab hidden">
+      <div class="card">
+        <h2>Manage Articles</h2>
+        <div class="row">
+          <input id="search" placeholder="Search news title/category">
+          <select id="filter">
+            <option value="">All articles</option>
+            <option value="yes">Featured only</option>
+            <option value="no">Not featured</option>
+          </select>
+        </div>
+        <div class="tablebox" style="margin-top:15px">
+          <table>
+            <thead>
+              <tr><th>Image</th><th>Title</th><th>Category</th><th>Views</th><th>Actions</th></tr>
+            </thead>
+            <tbody id="articleRows"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section id="editor" class="tab hidden">
+      <div class="card">
+        <h2 id="editorHeading">Add New Article</h2>
+        <form id="articleForm">
+          <input id="articleId" type="hidden">
+
+          <label>News Title *</label>
+          <input id="title" required maxlength="220">
+
+          <div class="row">
+            <div>
+              <label>Category *</label>
+              <input id="category" list="categoryOptions" required>
+              <datalist id="categoryOptions">
+                <option>Hindi Movies</option>
+                <option>Hollywood Movies</option>
+                <option>Nepali Movies</option>
+                <option>World History</option>
+                <option>Health Tips</option>
+                <option>Political News</option>
+                <option>Celebrity Lifestyle</option>
+              </datalist>
+            </div>
+            <div>
+              <label>Author / Celebrity</label>
+              <input id="author" value="Daily Selibreti">
+            </div>
+          </div>
+
+          <label>Thumbnail Image URL *</label>
+          <input id="image" type="url" placeholder="https://example.com/photo.jpg" required>
+
+          <label>Short Summary *</label>
+          <textarea id="excerpt" maxlength="600" required></textarea>
+
+          <label>Full Article *</label>
+          <textarea id="content" style="min-height:240px" required></textarea>
+
+          <label>Main Points (one per line)</label>
+          <textarea id="points"></textarea>
+
+          <div class="row">
+            <div>
+              <label>YouTube Video ID (optional)</label>
+              <input id="youtube" placeholder="YouTube video ID">
+            </div>
+            <div>
+              <label>Publish Date</label>
+              <input id="date" type="date">
+            </div>
+          </div>
+
+          <label style="display:flex;gap:8px;align-items:center">
+            <input id="isFeatured" type="checkbox" style="width:auto">
+            Set as Featured Article
+          </label>
+
+          <div class="actions" style="margin-top:16px">
+            <button class="primary" type="submit">Save Article</button>
+            <button class="soft" type="button" id="clear">Clear Form</button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <section id="settings" class="tab hidden">
+      <div class="card">
+        <h2>Website & Advertising Settings</h2>
+        <p class="muted">Settings are saved in Firestore at siteSettings/main. Your homepage must read this document to apply the settings.</p>
+
+        <form id="settingsForm">
+          <label>Breaking News Ticker</label>
+          <input id="ticker">
+
+          <div class="row">
+            <div>
+              <label>Mobile Ad Key (320 × 50)</label>
+              <input id="mobileAd">
+            </div>
+            <div>
+              <label>Desktop Ad Key (728 × 90)</label>
+              <input id="desktopAd">
+            </div>
+          </div>
+
+          <label>Sidebar Ad Key</label>
+          <input id="sidebarAd">
+
+          <label>Contact Email</label>
+          <input id="contactEmail" type="email">
+
+          <label>Website Description</label>
+          <textarea id="description"></textarea>
+
+          <div class="actions" style="margin-top:14px">
+            <button class="primary">Save Settings</button>
+            <button class="soft" type="button" id="reloadSettings">Reload Settings</button>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+</div>
+
 <script type="module">
-import{initializeApp}from'https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js';
-import{getFirestore,collection,getDocs,doc,updateDoc,increment}from'https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js';
-const firebaseConfig={apiKey:'AIzaSyAugOzRINjz2TTZVazdZN-novPV7R94yAo',authDomain:'mero-news-porttal.firebaseapp.com',projectId:'mero-news-porttal',storageBucket:'mero-news-porttal.firebasestorage.app',messagingSenderId:'779470078737',appId:'1:779470078737:web:f2cbae6da4f855464042b0'};
-const app=initializeApp(firebaseConfig),db=getFirestore(app);let allNews=[],currentPost=null,heroPost=null,sidePosts=[];const fallbackImage='https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=1000&q=80';
-function esc(v){return String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[c]))}function dateValue(v){try{if(v?.toDate)return v.toDate();const d=new Date(v);return isNaN(d)?null:d}catch{return null}}function fmt(v){const d=dateValue(v);return d?d.toLocaleDateString('en-US',{year:'numeric',month:'short',day:'numeric'}):''}function postDate(p){return p.createdAt||p.date||0}
-async function loadNews(){const grid=document.getElementById('newsGrid');try{const snap=await getDocs(collection(db,'news'));allNews=snap.docs.map(d=>({id:d.id,...d.data()}));allNews.sort((a,b)=>(dateValue(postDate(b))?.getTime()||0)-(dateValue(postDate(a))?.getTime()||0));renderHome();openHashArticle()}catch(err){console.error(err);grid.innerHTML='<div class="empty">समाचार लोड हुन सकेन। Firebase project configuration, internet र Firestore rules जाँच गर्नुहोस्।</div>'}}
-function renderHome(){renderNews(allNews.slice(0,12));renderPopular();renderHero()}function renderNews(list){const grid=document.getElementById('newsGrid');if(!list.length){grid.innerHTML='<div class="empty">यो category मा समाचार भेटिएन। Firebase को news collection मा category मिलेको post राख्नुहोस्।</div>';return}grid.innerHTML=list.map(p=>`<article class="news-card" onclick="openPostById('${esc(p.id)}')"><img src="${esc(p.image||fallbackImage)}" alt="${esc(p.title||'News')}" loading="lazy"><div class="news-info"><div class="news-category">${esc(p.category||'News')}</div><div class="news-title">${esc(p.title||'Untitled News')}</div><div class="news-excerpt">${esc(p.excerpt||'')}</div><div class="news-meta"><span><i class="fa-regular fa-calendar"></i> ${esc(fmt(postDate(p)))}</span><span><i class="fa-regular fa-eye"></i> ${Number(p.views||0)} views</span></div></div></article>`).join('')}
-function renderHero(){if(!allNews.length)return;heroPost=allNews.find(p=>p.featured===true)||allNews[0];sidePosts=allNews.filter(p=>p.id!==heroPost.id).slice(0,2);document.getElementById('heroImage').src=heroPost.image||fallbackImage;document.getElementById('heroTitle').textContent=heroPost.title||'Daily Selibreti';document.getElementById('heroCategory').textContent=heroPost.category||'FEATURED';document.getElementById('heroMeta').textContent=[fmt(postDate(heroPost)),heroPost.author||heroPost.celebrity].filter(Boolean).join(' • ');[0,1].forEach(i=>{if(sidePosts[i]){document.getElementById('sideImage'+(i+1)).src=sidePosts[i].image||fallbackImage;document.getElementById('sideTitle'+(i+1)).textContent=sidePosts[i].title||''}})}
-function renderPopular(){const box=document.getElementById('popularList'),list=[...allNews].sort((a,b)=>Number(b.views||0)-Number(a.views||0)).slice(0,6);if(!list.length){box.innerHTML='<div class="empty">अहिले trending समाचार छैन।</div>';return}box.innerHTML=list.map(p=>`<div class="popular-item" onclick="openPostById('${esc(p.id)}')"><img src="${esc(p.image||fallbackImage)}" alt="" loading="lazy"><div><h4>${esc(p.title||'')}</h4><span><i class="fa-regular fa-eye"></i> ${Number(p.views||0)} views</span></div></div>`).join('')}
-window.filterCategory=function(category,event){if(event)event.preventDefault();toggleDrawer(false);const key=String(category||'All').toLowerCase(),list=key==='all'?allNews:allNews.filter(p=>String(p.category||'').toLowerCase()===key);document.getElementById('newsHeading').textContent=key==='all'?'Latest News':category;renderNews(list.slice(0,60));document.getElementById('newsGrid').scrollIntoView({behavior:'smooth',block:'start'})};window.searchNews=function(query){const q=String(query||'').trim().toLowerCase();if(!q){document.getElementById('newsHeading').textContent='Latest News';renderNews(allNews.slice(0,12));return}const list=allNews.filter(p=>[p.title,p.category,p.author,p.celebrity,p.excerpt,p.content].join(' ').toLowerCase().includes(q));document.getElementById('newsHeading').textContent='Search Results';renderNews(list)};
-function makeAd(type){const wrap=document.createElement('div');wrap.className='article-inline-ad';const label=document.createElement('div');label.className='article-ad-label';label.textContent='ADVERTISEMENT';const box=document.createElement('div');box.className=type==='320'?'article-ad-320':'article-ad-728';wrap.append(label,box);return{wrap,box}}let adQueue=Promise.resolve();function loadArticleAd(box,type){adQueue=adQueue.then(()=>new Promise(resolve=>{const key=type==='320'?'5a52038c2104e86f78b97b96b4eb5fab':'1ae7e4561f927e2fe06c78e424dd0ffd',width=type==='320'?320:728,height=type==='320'?50:90;const frame=document.createElement('div');frame.style.width=width+'px';frame.style.height=height+'px';frame.style.maxWidth='100%';frame.style.overflow='hidden';const options=document.createElement('script');options.textContent="atOptions = {'key':'"+key+"','format':'iframe','height':"+height+",'width':"+width+",'params':{}};";const script=document.createElement('script');script.src='https://www.highrevenueformat.com/'+key+'/invoke.js';script.onload=()=>setTimeout(resolve,400);script.onerror=resolve;frame.append(options,script);box.appendChild(frame);setTimeout(resolve,2500)}))}
-function buildArticleContent(post){const raw=String(post.content||post.body||'').trim(),container=document.createElement('div');container.className='article-generated-content';const points=Array.isArray(post.mainPoints)?post.mainPoints:(typeof post.mainPoints==='string'?post.mainPoints.split(/\n+/).filter(Boolean):[]);if(points.length){const panel=document.createElement('section');panel.className='key-points';const h=document.createElement('h3');h.textContent='मुख्य बुँदाहरू';const ul=document.createElement('ul');points.forEach(x=>{const li=document.createElement('li');li.textContent=x;ul.appendChild(li)});panel.append(h,ul);container.appendChild(panel)}if(!raw){const p=document.createElement('p');p.textContent=post.excerpt||'यस समाचारको विस्तृत सामग्री उपलब्ध छैन।';container.appendChild(p);return container}const words=raw.split(/\s+/).filter(Boolean);let buffer=[];words.forEach((word,index)=>{buffer.push(word);const n=index+1;if(n%50===0){const p=document.createElement('p');p.textContent=buffer.join(' ');container.appendChild(p);buffer=[];const type=n%100===0?'728':'320',ad=makeAd(type);container.appendChild(ad.wrap);loadArticleAd(ad.box,type)}});if(buffer.length){const p=document.createElement('p');p.textContent=buffer.join(' ');container.appendChild(p)}return container}
-window.openPostById=async function(id){const p=allNews.find(x=>x.id===id);if(p)await openPost(p)};async function openPost(post){currentPost=post;adQueue=Promise.resolve();document.getElementById('articleCategory').textContent=post.category||'NEWS';document.getElementById('articleTitle').textContent=post.title||'';document.getElementById('articleAuthor').textContent='✎ '+(post.author||post.celebrity||'Daily Selibreti');document.getElementById('articleDate').textContent='▦ '+fmt(postDate(post));const nextViews=Number(post.views||0)+1;document.getElementById('articleViews').textContent='◉ '+nextViews+' views';document.getElementById('articleImage').src=post.image||fallbackImage;const content=document.getElementById('articleContent');content.replaceChildren();content.appendChild(buildArticleContent(post));const yt=document.getElementById('articleYoutube');if(post.youtubeId){yt.style.display='block';document.getElementById('youtubeFrame').src='https://www.youtube-nocookie.com/embed/'+encodeURIComponent(post.youtubeId)}else{yt.style.display='none';document.getElementById('youtubeFrame').src=''}renderRelated(post);document.getElementById('articleModal').classList.add('show');document.body.style.overflow='hidden';history.replaceState(null,'',location.pathname+'#news-'+encodeURIComponent(post.id));try{await updateDoc(doc(db,'news',post.id),{views:increment(1)});post.views=nextViews;renderPopular()}catch(err){console.warn('View count update failed:',err)}}
-function renderRelated(post){const list=allNews.filter(p=>p.id!==post.id&&(p.category===post.category||(post.author&&p.author===post.author))).slice(0,6);document.getElementById('relatedGrid').innerHTML=list.length?list.map(p=>`<div class="related-card" onclick="openPostById('${esc(p.id)}')"><img src="${esc(p.image||fallbackImage)}" alt="" loading="lazy"><h4>${esc(p.title||'')}</h4></div>`).join(''):'<div class="empty">सम्बन्धित समाचार छैन।</div>'}
-window.closeArticle=function(){document.getElementById('articleModal').classList.remove('show');document.body.style.overflow='';document.getElementById('youtubeFrame').src='';currentPost=null;history.replaceState(null,'',location.pathname)};window.openHero=function(){if(heroPost)openPost(heroPost)};window.openSide=function(i){if(sidePosts[i])openPost(sidePosts[i])};
-function articleURL(){return currentPost?location.origin+location.pathname+'#news-'+encodeURIComponent(currentPost.id):location.href}function getShareMessage(){if(!currentPost)return'Daily Selibreti';const p=currentPost,points=Array.isArray(p.mainPoints)?p.mainPoints:typeof p.mainPoints==='string'?p.mainPoints.split(/\n+/).filter(Boolean):[],main=points.length?'\n\nमुख्य बुँदाहरू:\n'+points.map((x,i)=>`${i+1}. ${x}`).join('\n'):'';return`${p.title||'Latest News'}\n\n${p.excerpt||''}${main}\n\nपूरा समाचार पढ्नुहोस्:\n${articleURL()}\n\nDaily Selibreti — News & Entertainment`}
-window.shareWhatsApp=function(){window.open('https://api.whatsapp.com/send?text='+encodeURIComponent(getShareMessage()),'_blank','noopener,noreferrer')};window.shareFacebook=function(){const url=articleURL();window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(url),'_blank','noopener,noreferrer')};window.shareTelegram=function(){window.open('https://t.me/share/url?url='+encodeURIComponent(articleURL())+'&text='+encodeURIComponent(getShareMessage()),'_blank','noopener,noreferrer')};window.shareMessenger=function(){const url=articleURL();window.open('https://www.facebook.com/dialog/send?link='+encodeURIComponent(url)+'&app_id=0&redirect_uri='+encodeURIComponent(url),'_blank','noopener,noreferrer')};window.copyArticleLink=async function(){const message=getShareMessage();try{await navigator.clipboard.writeText(message);alert('समाचार, Main Points र Link Copy भयो।')}catch{prompt('तलको समाचार Copy गर्नुहोस्:',message)}};window.nativeShare=async function(){const message=getShareMessage();if(navigator.share){try{await navigator.share({title:currentPost?.title||'Daily Selibreti',text:message,url:articleURL()})}catch(error){if(error.name!=='AbortError')console.warn('Share failed:',error)}}else window.copyArticleLink()};
-window.toggleDrawer=function(force){const d=document.getElementById('drawer'),b=document.getElementById('backdrop'),open=force===undefined?!d.classList.contains('open'):Boolean(force);d.classList.toggle('open',open);b.classList.toggle('show',open)};window.goHome=function(){toggleDrawer(false);document.getElementById('newsHeading').textContent='Latest News';renderHome();window.scrollTo({top:0,behavior:'smooth'})};function openHashArticle(){if(!location.hash.startsWith('#news-'))return;const id=decodeURIComponent(location.hash.slice(6));const p=allNews.find(x=>x.id===id);if(p)setTimeout(()=>openPost(p),250)}document.addEventListener('keydown',e=>{if(e.key==='Escape'&&document.getElementById('articleModal').classList.contains('show'))closeArticle()});document.getElementById('year').textContent=new Date().getFullYear();loadNews();
-</script>
+import { initializeApp } from
+  "https://www.gstatic.com/firebasejs/11.10.0/firebase-app.js";
 
-<script>
-const policyTitles = {about:'About Us',contact:'Contact Us','privacy-policy':'Privacy Policy',terms:'Terms & Conditions',disclaimer:'Disclaimer','cookie-policy':'Cookie Policy','editorial-policy':'Editorial Policy'};
-function showPolicyPage(key, updateHash=true){
-  if(!policyTitles[key]) return showHome();
-  const template=document.getElementById('template-'+key);
-  if(!template) return;
-  document.getElementById('policyContent').innerHTML=template.innerHTML;
-  document.body.classList.add('policy-mode');
-  document.getElementById('policyView').style.display='block';
-  document.title=policyTitles[key]+' | Daily Selibreti';
-  if(updateHash && location.hash!=='#page='+key) history.pushState({page:key},'', '#page='+key);
-  window.scrollTo({top:0,behavior:'smooth'});
-}
-function openPolicyLink(event,hash){
-  if(event) event.preventDefault();
-  const key=(hash||location.hash).replace(/^#page=/,'');
-  showPolicyPage(key,true);
-  if(typeof toggleDrawer==='function') toggleDrawer(false);
-  return false;
-}
-function showHome(event){
-  if(event) event.preventDefault();
-  document.body.classList.remove('policy-mode');
-  document.getElementById('policyView').style.display='none';
-  document.title='Daily Selibreti — News & Entertainment';
-  if(location.hash.startsWith('#page=')) history.pushState({},'',location.pathname+location.search);
-  window.scrollTo({top:0,behavior:'smooth'});
-  return false;
-}
-function handlePolicyHash(){
-  if(location.hash.startsWith('#page=')) showPolicyPage(decodeURIComponent(location.hash.slice(6)),false);
-  else if(document.body.classList.contains('policy-mode')) showHome();
-}
-window.addEventListener('hashchange',handlePolicyHash);
-window.addEventListener('popstate',handlePolicyHash);
-document.addEventListener('DOMContentLoaded',handlePolicyHash);
-</script>
+import {
+  getAuth, signInWithEmailAndPassword, onAuthStateChanged, signOut
+} from "https://www.gstatic.com/firebasejs/11.10.0/firebase-auth.js";
 
+import {
+  getFirestore, collection, getDocs, doc, getDoc,
+  addDoc, updateDoc, deleteDoc, setDoc,
+  serverTimestamp, Timestamp
+} from "https://www.gstatic.com/firebasejs/11.10.0/firebase-firestore.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyAugOzRINjz2TTZVazdZN-novPV7R94yAo",
+  authDomain: "mero-news-porttal.firebaseapp.com",
+  projectId: "mero-news-porttal",
+  storageBucket: "mero-news-porttal.firebasestorage.app",
+  messagingSenderId: "779470078737",
+  appId: "1:779470078737:web:f2cbae6da4f855464042b0"
+};
+
+const appFirebase = initializeApp(firebaseConfig);
+const auth = getAuth(appFirebase);
+const db = getFirestore(appFirebase);
+
+const $ = id => document.getElementById(id);
+let posts = [];
+
+function message(id, text, error = false) {
+  const el = $(id);
+  el.className = "status" + (error ? " error" : "");
+  el.textContent = text;
+}
+
+function escapeHTML(value = "") {
+  return String(value).replace(/[&<>"']/g, char => ({
+    "&":"&amp;", "<":"&lt;", ">":"&gt;",
+    '"':"&quot;", "'":"&#39;"
+  }[char]));
+}
+
+function showTab(tab) {
+  document.querySelectorAll(".tab").forEach(section => {
+    section.classList.toggle("hidden", section.id !== tab);
+  });
+  document.querySelectorAll("[data-tab]").forEach(button => {
+    button.classList.toggle("active", button.dataset.tab === tab);
+  });
+}
+
+document.querySelectorAll("[data-tab]").forEach(button => {
+  button.addEventListener("click", () => showTab(button.dataset.tab));
+});
+
+$("loginForm").addEventListener("submit", async event => {
+  event.preventDefault();
+  try {
+    await signInWithEmailAndPassword(
+      auth, $("email").value.trim(), $("password").value
+    );
+  } catch (error) {
+    message("loginMsg", error.message, true);
+  }
+});
+
+onAuthStateChanged(auth, async user => {
+  if (!user) {
+    $("login").classList.remove("hidden");
+    $("app").classList.add("hidden");
+    return;
+  }
+
+  if (user.email !== "harishbist576@gmail.com" && user.uid !== "0hr3qouCASTX6Vbos41JgHGaXDD2") {
+    await signOut(auth);
+    message("loginMsg", "यो account लाई Admin अनुमति छैन।", true);
+    return;
+  }
+
+  $("login").classList.add("hidden");
+  $("app").classList.remove("hidden");
+
+  try {
+    await loadArticles();
+  } catch (error) {
+    console.log("Articles silent load:", error);
+  }
+
+  try {
+    await loadSettings();
+  } catch (error) {
+    console.log("Settings silent load:", error);
+  }
+});
+
+$("logout").addEventListener("click", () => signOut(auth));
+
+function dateMillis(post) {
+  if (post.createdAt?.toDate) return post.createdAt.toDate().getTime();
+  const date = new Date(post.date || 0).getTime();
+  return Number.isNaN(date) ? 0 : date;
+}
+
+async function loadArticles() {
+  const snapshot = await getDocs(collection(db, "news"));
+  posts = snapshot.docs.map(item => ({ id: item.id, ...item.data() }));
+  posts.sort((a, b) => dateMillis(b) - dateMillis(a));
+  renderAll();
+}
+
+function renderAll() {
+  $("total").textContent = posts.length;
+  $("featuredCount").textContent = posts.filter(p => p.featured === true).length;
+  $("views").textContent = posts.reduce((sum, p) => sum + Number(p.views || 0), 0).toLocaleString();
+  $("categories").textContent = new Set(posts.map(p => p.category).filter(Boolean)).size;
+
+  const recent = posts.slice(0, 5);
+  $("recent").innerHTML = recent.length
+    ? recent.map(p => `<p><b>${escapeHTML(p.title)}</b> — ${escapeHTML(p.category || "")}</p>`).join("")
+    : "No articles yet.";
+
+  renderTable();
+}
+
+function renderTable() {
+  const query = $("search").value.toLowerCase();
+  const featuredFilter = $("filter").value;
+
+  const list = posts.filter(p => {
+    const matches = [p.title, p.category, p.author, p.excerpt]
+      .join(" ").toLowerCase().includes(query);
+
+    const featureMatches = !featuredFilter ||
+      (featuredFilter === "yes" ? p.featured === true : p.featured !== true);
+
+    return matches && featureMatches;
+  });
+
+  $("articleRows").innerHTML = list.map(p => `
+    <tr>
+      <td><img class="thumb" src="${escapeHTML(p.image || "")}" alt=""
+        onerror="this.style.display='none'"></td>
+      <td>${escapeHTML(p.title || "Untitled")}</td>
+      <td>${escapeHTML(p.category || "")}</td>
+      <td>${Number(p.views || 0)}</td>
+      <td><div class="actions">
+        <button class="soft" data-edit="${escapeHTML(p.id)}">Edit</button>
+        <button class="soft" data-feature="${escapeHTML(p.id)}">★</button>
+        <button class="danger" data-delete="${escapeHTML(p.id)}">Delete</button>
+      </div></td>
+    </tr>
+  `).join("") || '<tr><td colspan="5">No articles found.</td></tr>';
+
+  document.querySelectorAll("[data-edit]").forEach(button =>
+    button.onclick = () => editArticle(button.dataset.edit)
+  );
+
+  document.querySelectorAll("[data-feature]").forEach(button =>
+    button.onclick = () => toggleFeatured(button.dataset.feature)
+  );
+
+  document.querySelectorAll("[data-delete]").forEach(button =>
+    button.onclick = () => removeArticle(button.dataset.delete)
+  );
+}
+
+$("search").addEventListener("input", renderTable);
+$("filter").addEventListener("change", renderTable);
+
+function clearForm() {
+  $("articleForm").reset();
+  $("articleId").value = "";
+  $("author").value = "Daily Selibreti";
+  $("date").value = new Date().toISOString().slice(0, 10);
+  $("editorHeading").textContent = "Add New Article";
+}
+
+$("clear").addEventListener("click", clearForm);
+
+function editArticle(id) {
+  const p = posts.find(item => item.id === id);
+  if (!p) return;
+
+  showTab("editor");
+  $("editorHeading").textContent = "Edit Article";
+  $("articleId").value = p.id;
+  $("title").value = p.title || "";
+  $("category").value = p.category || "";
+  $("author").value = p.author || "";
+  $("image").value = p.image || "";
+  $("excerpt").value = p.excerpt || "";
+  $("content").value = p.content || p.body || "";
+  $("points").value = Array.isArray(p.mainPoints)
+    ? p.mainPoints.join("\n") : (p.mainPoints || "");
+  $("youtube").value = p.youtubeId || "";
+  $("date").value = typeof p.date === "string"
+    ? p.date : new Date().toISOString().slice(0, 10);
+  $("isFeatured").checked = p.featured === true;
+}
+
+$("articleForm").addEventListener("submit", async event => {
+  event.preventDefault();
+
+  try {
+    const id = $("articleId").value;
+    const oldPost = posts.find(p => p.id === id);
+
+    const data = {
+      title: $("title").value.trim(),
+      category: $("category").value.trim(),
+      author: $("author").value.trim() || "Daily Selibreti",
+      image: $("image").value.trim(),
+      excerpt: $("excerpt").value.trim(),
+      content: $("content").value.trim(),
+      mainPoints: $("points").value.split("\n").map(x => x.trim()).filter(Boolean),
+      youtubeId: $("youtube").value.trim(),
+      date: $("date").value || new Date().toISOString().slice(0, 10),
+      featured: $("isFeatured").checked,
+      views: Number(oldPost?.views || 0),
+      updatedAt: serverTimestamp()
+    };
+
+    if (!data.title || !data.category || !data.image ||
+        !data.excerpt || !data.content) {
+      throw new Error("Title, category, image, summary र full article आवश्यक छन्।");
+    }
+
+    if (data.featured) {
+      for (const p of posts.filter(p => p.featured && p.id !== id)) {
+        await updateDoc(doc(db, "news", p.id), { featured: false });
+      }
+    }
+
+    if (id) {
+      await updateDoc(doc(db, "news", id), data);
+    } else {
+      data.createdAt = Timestamp.fromDate(new Date(data.date + "T12:00:00"));
+      await addDoc(collection(db, "news"), data);
+    }
+
+    await loadArticles();
+    clearForm();
+    showTab("articles");
+    message("globalMsg", "Article successfully saved.");
+  } catch (error) {
+    message("globalMsg", error.message, true);
+  }
+});
+
+async function toggleFeatured(id) {
+  try {
+    const post = posts.find(p => p.id === id);
+    if (!post) return;
+
+    const nextValue = !post.featured;
+
+    if (nextValue) {
+      for (const p of posts.filter(p => p.featured && p.id !== id)) {
+        await updateDoc(doc(db, "news", p.id), { featured: false });
+      }
+    }
+
+    await updateDoc(doc(db, "news", id), { featured: nextValue });
+    await loadArticles();
+    message("globalMsg", "Featured status updated.");
+  } catch (error) {
+    message("globalMsg", error.message, true);
+  }
+}
+
+async function removeArticle(id) {
+  if (!confirm("यो समाचार सधैँका लागि हटाउने?")) return;
+
+  try {
+    await deleteDoc(doc(db, "news", id));
+    await loadArticles();
+    message("globalMsg", "Article deleted.");
+  } catch (error) {
+    message("globalMsg", error.message, true);
+  }
+}
+
+// कुनै पनि इरर आए स्क्रिनमा देखाउन नदिई डिफल्ट भ्यालु भर्ने फङ्सन
+async function loadSettings() {
+  let data = {};
+  try {
+    const snapshot = await getDoc(doc(db, "siteSettings", "main"));
+    if (snapshot.exists()) {
+      data = snapshot.data();
+    }
+  } catch (err) {
+    console.log("Firestore settings fetch error safely ignored.");
+  }
+
+  $("ticker").value = data.ticker || "Welcome to Daily Selibreti";
+  $("mobileAd").value = data.mobileAdKey || "5a52038c2104e86f78b97b96b4eb5fab";
+  $("desktopAd").value = data.desktopAdKey || "1ae7e4561f927e2fe06c78e424dd0ffd";
+  $("sidebarAd").value = data.sidebarAdKey || "";
+  $("contactEmail").value = data.contactEmail || "harishbist576@gmail.com";
+  $("description").value = data.description || "Daily Selibreti — News & Entertainment";
+}
+
+$("settingsForm").addEventListener("submit", async event => {
+  event.preventDefault();
+
+  try {
+    await setDoc(doc(db, "siteSettings", "main"), {
+      ticker: $("ticker").value.trim(),
+      mobileAdKey: $("mobileAd").value.trim(),
+      desktopAdKey: $("desktopAd").value.trim(),
+      sidebarAdKey: $("sidebarAd").value.trim(),
+      contactEmail: $("contactEmail").value.trim(),
+      description: $("description").value.trim(),
+      updatedAt: serverTimestamp()
+    }, { merge: true });
+
+    message("globalMsg", "Settings Save भयो।");
+  } catch (error) {
+    message("globalMsg", error.message, true);
+  }
+});
+
+$("reloadSettings").addEventListener("click", async () => {
+  try {
+    await loadSettings();
+    message("globalMsg", "Settings reloaded.");
+  } catch (error) {
+    message("globalMsg", error.message, true);
+  }
+});
+
+$("date").value = new Date().toISOString().slice(0, 10);
+</script>
 </body>
 </html>
